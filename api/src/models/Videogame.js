@@ -27,7 +27,7 @@ module.exports = (sequelize) => {
         type: DataTypes.TEXT,
         allowNull: false,
       },
-      releasedate: {
+      released: {
         type: DataTypes.DATEONLY,
         allowNull: false,
       },
@@ -35,8 +35,8 @@ module.exports = (sequelize) => {
         type: DataTypes.FLOAT,
         allowNull: false,
       },
-      creators: {
-        type: DataTypes.STRING,
+      rating_top: {
+        type: DataTypes.INTEGER,
         allowNull: true,
       },
       playtime: {

@@ -7,11 +7,11 @@ const indexRoute = require("./routes/index");
 
 require('./db.js');
 
-const server = express();
-server.use(morgan("dev"));
-
-server.use(cors());
-server.use(express.json());
+const server = express(); //a partir de aca tenemos creado nuestrom servidor
+//use: darle el camino
+server.use(morgan("dev")); //recibe la req y registra los que sucede con ella/ "console.log de la req"
+server.use(cors()); //permite a los servidores indicar a los navegadores si deben permitir la carga de recursos para un origen distinto al suyo
+server.use(express.json());//reconocer el objeto de solicitud entrante como un objeto JSON, el envio de datos va a ser tomado como .json
 
 server.name = 'API';
 
@@ -38,3 +38,13 @@ server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
 });
 
 module.exports = server;
+
+//postgress: sist de gestion de db
+//.use: indica a la req por donde debe pasar
+//pasar la req por determinados middlewars: 
+// fx que reciben la req, hace algo, y la devuelve a su camino - en el medio del camino hacia la endpoint
+//middleware: req, res, next
+//final de la req --> endpoint
+
+//middleware:códigos que se ejecutan antes de que una petición 
+//HTTP llegue al manejador de rutas o antes de que un cliente reciba una respuesta;
