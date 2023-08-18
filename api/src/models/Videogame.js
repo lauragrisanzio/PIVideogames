@@ -8,7 +8,7 @@ module.exports = (sequelize) => {
     {
       id: {
         type: DataTypes.UUID,
-        autoincrement: true,
+        defaultValue:DataTypes.UUIDV4,
         primaryKey: true,
       },
       name: {
@@ -23,7 +23,7 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      image: {
+      background_image: {
         type: DataTypes.TEXT,
         allowNull: false,
       },
