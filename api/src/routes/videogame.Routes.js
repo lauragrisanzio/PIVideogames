@@ -1,13 +1,14 @@
 const { Router } = require("express");
 
-// const getAllActivitiesHandler = require("../handlers/getAllActivitiesHandler");
-// const createActivityHandler = require("../handlers/createActivityHandler");
+const getVideogamesHandler = require("../handlers/getVideogamesHandler")
 
 const videogameRouter = Router();
 
-videogameRouter.get("/", (req, res) => {
-  res.status(200).send("Ruta para obtener todos los videogame de la api y bdd");
-});
+// videogameRouter.get("/", (req, res) => {
+//   res.status(200).send("Ruta para obtener todos los videogame de la api y bdd");
+// });
+
+videogameRouter.get("/", getVideogamesHandler);
 
 videogameRouter.get("/name?", (req, res) => {
   res.status(200).send("Ruta para obtener un videogame por NOMBRE");
