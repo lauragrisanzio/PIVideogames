@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config(); //las variables de entorno ya estan disponibles en process.env
 const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');

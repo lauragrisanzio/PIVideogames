@@ -12,7 +12,7 @@ const postVideogameHandler = async (req, res) => {
       rating_top,
       GenreId
     } = req.body;
-console.log(req.body);
+
       if (
         !name ||
         !description ||

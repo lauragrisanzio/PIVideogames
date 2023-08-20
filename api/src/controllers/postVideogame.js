@@ -27,6 +27,14 @@ const postVideogame = async ({
   });
 
   await newVideogame.addGenres(GenreId);
+  // newVideogame = await Videogame.findAll({
+  //   include: {
+  //     model: Genres,
+  //     attributes: ["name"],
+  //     through: { attributes: [] },
+  //   },
+  // });
+  
   return newVideogame;
 };
 

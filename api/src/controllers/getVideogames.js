@@ -49,7 +49,7 @@ const getVideogames = async (name) => {
    
     //traigo info de la db:
 
-    const videogamesDatabase = Videogame.findAll({
+    const videogamesDatabase = await Videogame.findAll({
       include: {
         model: Genres,
         attributes: ["name"],
@@ -58,7 +58,7 @@ const getVideogames = async (name) => {
         },
       },
     });
-
+console.log(videogamesDatabase);
     //unimos a los datos de la api con los de la db
 
     const infoVideogame = allVideogamesApi.concat(videogamesDatabase);
