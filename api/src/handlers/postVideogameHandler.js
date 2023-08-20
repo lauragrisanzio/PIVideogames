@@ -13,16 +13,16 @@ const postVideogameHandler = async (req, res) => {
       GenreId
     } = req.body;
 console.log(req.body);
-    //   if (
-    //     !name ||
-    //     !description ||
-    //     !platforms ||
-    //     !background_image ||
-    //     !released ||
-    //     !rating ||
-    //     !GenreId
-    //   )
-    //     throw Error("Missing data");
+      if (
+        !name ||
+        !description ||
+        !platforms ||
+        !background_image ||
+        !released ||
+        !rating ||
+        !GenreId
+      )
+        throw Error("Missing data");
       
     const newVideogame = await postVideogame({
       name,
