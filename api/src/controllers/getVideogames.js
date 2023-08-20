@@ -3,14 +3,17 @@ const { Genres, Videogame } = require("../db");
 
 const {API_KEY} = process.env
 
-const getVideogames = async () => {
+const getVideogames = async (name) => {
 
-  try {
+ 
     //traigo info de la api - son 6 paginas porque tienen que son un millon y minimo te piden 100 =(
     const data0 = await axios(`https://api.rawg.io/api/games?key=${API_KEY}`)
       .then((response) => response.data); //aca solo traemos la pagina 1, la de
-    const data1 = await axios(`https://api.rawg.io/api/games?key=${API_KEY}&page=3`)
+    const data1 = await axios(`https://api.rawg.io/api/games?key=${API_KEY}&page=2`)
       .then((response) => response.data);
+    const data2 = await axios(
+      `https://api.rawg.io/api/games?key=${API_KEY}&page=3`
+    ).then((response) => response.data);
     const data3 = await axios(`https://api.rawg.io/api/games?key=${API_KEY}&page=4`)
       .then((response) => response.data);
     const data4 = await axios(`https://api.rawg.io/api/games?key=${API_KEY}&page=5`)
@@ -43,6 +46,7 @@ const getVideogames = async () => {
       };
     });
 
+   
     //traigo info de la db:
 
     const videogamesDatabase = Videogame.findAll({
@@ -74,15 +78,19 @@ const getVideogames = async () => {
       };
     });
 
-    return allVideogames;
+
+    // console.log(allVideogames);
+    
     //de prueba:
     // const {data} = await axios(`https://api.rawg.io/api/games?key=${API_KEY}`);
     // return data
-  } catch (error) {
-    return error.status(400);
-  }
-};
+  
+    if (allVideogames.length === 0) {
+        return "No hay videojuegos en este momento"
 
+    }
+  return allVideogames;
+};
 module.exports = getVideogames;
 
 //Promise.all es en realidad una promesa que toma un arreglo de promesas como una entrada (un iterable). 

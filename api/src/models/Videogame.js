@@ -25,11 +25,11 @@ module.exports = (sequelize) => {
       },
       background_image: {
         type: DataTypes.TEXT,
-        allowNull: false,
+        allowNull: true,
       },
       released: {
         type: DataTypes.DATEONLY,
-        allowNull: false,
+        allowNull: true,
       },
       rating: {
         type: DataTypes.FLOAT,
@@ -38,11 +38,7 @@ module.exports = (sequelize) => {
       rating_top: {
         type: DataTypes.INTEGER,
         allowNull: true,
-      },
-      playtime: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-      },
+      }
     },
     {
       timestamps: false,
