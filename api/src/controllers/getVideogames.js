@@ -58,7 +58,7 @@ const getVideogames = async (name) => {
         },
       },
     });
-console.log(videogamesDatabase);
+
     //unimos a los datos de la api con los de la db
 
     const infoVideogame = allVideogamesApi.concat(videogamesDatabase);

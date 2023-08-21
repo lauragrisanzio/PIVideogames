@@ -8,9 +8,8 @@ const getVideoGCreatedHandler = async (req, res) => {
   } catch (error) {
     return res
       .status(400)
-      .json({
-        error:error.message
-        //   "No hay videojuegos en la base de datos o no creaste ningun videojuego todavia",
+      .json({error:     
+          "No hay videojuegos en la base de datos o no creaste ningun videojuego todavia"
       }); //en ingles
   }
 };
