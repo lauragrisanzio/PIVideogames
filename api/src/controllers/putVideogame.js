@@ -16,7 +16,7 @@ const putVideogame = async (id,{
   // });
   const videoGamedb = await Videogame.findByPk(id)
   
-  console.log(videoGamedb);
+  // console.log(videoGamedb);
 
   if (videoGamedb) {
     videoGamedb.update(
@@ -34,7 +34,7 @@ const putVideogame = async (id,{
    
   );
   }
-  console.log(videoGamedb);
+  // console.log(videoGamedb);
 
  
  if (!videoGamedb) throw Error("el juego a modificar no se encuentta");
