@@ -29,10 +29,7 @@ const getVideogames = async (name) => {
         .concat(d[4].results)
         .concat(d[5].results);
     });
-    //    .then((resultado) => {
-    //    console.log(resultado)
-    //  })
-    // console.log(apiGameInfo);
+    
     const allVideogamesApi = await apiGameInfo.map((v) => {
       return {
         id: v.id,

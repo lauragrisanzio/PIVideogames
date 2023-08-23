@@ -1,0 +1,31 @@
+.cardContainer {
+ border: solid 5px black;
+width: auto;
+display: block;
+display: flex;  
+flex-direction: column;
+background-color: white;
+border-radius: 5px;
+padding: 25px;
+cursor: pointer;
+font-size: 30px;
+font-style: black;
+}
+
+img{
+    height: 200px;
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+ }
+
+ .card{
+    /* border: 5px solid black; */
+    color: black;
+    width: 310px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    float: left;
+ }

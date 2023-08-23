@@ -1,6 +1,6 @@
-// import axios from "axios";
+import axios from "axios";
 
-// export const GET_COUNTRIES = "GET_COUNTRIES";
+export const GET_VIDEOGAMES = "GET_VIDEOGAMES";
 // export const GET_BY_NAME = "GET_BY_NAME";
 // export const GET_BY_DETAIL = "GET_BY_DETAIL";
 // export const FILTER_BY_CONTINENT = "FILTER_BY_CONTINENT";
@@ -10,15 +10,18 @@
 // export const GET_ACTIVITIES = "GET_ACTIVITIES";
 // export const CREATE_ACTIVITIES = "CREATE_ACTIVITIES"
 
-// export const getCountries =  () => {
-//        return async (dispatch) => {
-//          const response = await axios.get("http://localhost:3001/countries");
-//         return dispatch({
-//             type: "GET_COUNTRIES",
-//             payload: response.data
-//             })
-//     }
-// };
+export const getVideogames =  () => {
+       return async (dispatch) => {
+         const response = await axios("http://localhost:3001/videogame");
+        //  console.log(response);
+         
+         return dispatch({
+           type: GET_VIDEOGAMES,
+           payload: response.data  //me llega bien la informacion
+        }
+        )
+    }
+};
 
 // export const getActivities = () => {
 //   return async (dispatch) => {
