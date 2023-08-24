@@ -71,7 +71,7 @@ const getVideogames = async (name) => {
         rating: videogame.rating,
         rating_top: videogame.rating_top,
         platforms: videogame.platforms,
-        genres: videogame.genres,
+        genres: videogame.genres || videogame.Genres.map(g => g.name), //Genres.map:mapea los de la database
       };
     });
 

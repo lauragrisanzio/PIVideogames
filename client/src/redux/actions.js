@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const GET_VIDEOGAMES = "GET_VIDEOGAMES";
-// export const GET_BY_NAME = "GET_BY_NAME";
+export const GET_BY_NAME = "GET_BY_NAME";
 // export const GET_BY_DETAIL = "GET_BY_DETAIL";
 // export const FILTER_BY_CONTINENT = "FILTER_BY_CONTINENT";
 // export const FILTER_BY_ACTIVITY = "FILTER_BY_ACTIVITY";
@@ -33,20 +33,20 @@ export const getVideogames =  () => {
 //   };
 // };
 
-// export const getByName = (name) => {
-//   return async (dispatch) => {
-//     try {
-//       const response = await axios(`http://localhost:3001/countries/?name=${name}`);
-//     return dispatch({
-//       type: "GET_BY_NAME",
-//       payload: response.data,
-//     });
-//     } catch (error) {
-//       alert("No hay paises con ese nombre, intente nuevamente")
-//     }
-    
-//   };
-// };
+export const getByName = (name) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios(`http://localhost:3001/videogame?name=${name}`);
+      // console.log(response);
+    return dispatch({
+      type: GET_BY_NAME,
+      payload: response.data,
+    });
+    } catch (error) {
+      alert("No hay videojuegos con ese nombre, intente nuevamente")
+    }
+  };
+};
 
 // export const getByDetail = (id) => {
 //   return async (dispatch) => {
