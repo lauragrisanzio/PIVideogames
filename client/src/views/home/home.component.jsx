@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
+import SearchBar from "../../components/SearchBar/searchBar";
 import {getVideogames}  from "../../redux/actions";
 
 // import NavBar from "../../components/navbar/navbar.component";
@@ -20,25 +21,17 @@ function Home() {
   //componente quiero que estes suscripto a cualquier cambio que ocurra en el estado allVideogames
   const allVideogames = useSelector((state) => state.allVideogames); //se indica al componente de que estado depende, a que estado quiero estar suscripto
    
-  //   const [searchString, setSearchString] = useState("");
-  // console.log(allVideogames);
-
-//   //funcion que setea el searchstring(value) del input
-//   const handleChange = (e) => {
-//     e.preventDefault(); //para que la pagina no se actualice
-//     setSearchString(e.target.value.toLowerCase());
-//   };
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     dispatch(getByName(searchString));
-//   };
-
-  useEffect(() => {
+ 
+   useEffect(() => {
     dispatch(getVideogames()); //1° parametro lo que queremos ejecutar al momento de hacer el dispatch, cuando se monta
 // // //     // return(()=>{}) //=> en esta callback se ejecuta una fx al momento de desmontar
   }, [dispatch]); //2° parametro una array de dependecia
 
+  // const handleOnClick = () => {
+   //   getVideogames();
+    // };
+// console.log(handleOnClick()); 
+  
 //   const countriesPage = allCountries.slice(0, 10);
 //   const countriesPerPage = 10;
 //   const [currentPage, setCurrentPage] = useState(1); //current page= pagina actual
@@ -58,15 +51,16 @@ function Home() {
         pageClick={pageClick}
       /> */}
       <h1>VIEW HOME</h1>
+      <SearchBar/>
       <p>
         Esta es la HOME page: tiene que tener: *Botones/Opciones para filtrar
         por continente y por tipo de actividad turística. *Paginado: el listado
         de países se hará por partes. Tu SPA debe contar con un paginado que
         muestre un total de 10 países por página.
       </p>
+      <button>ALL VIDEOGAMES</button>;
       <div className={styles.cardList}>
         <Cards allVideogames={allVideogames} />
-     
       </div>
     </div>
   );

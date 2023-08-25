@@ -1,7 +1,11 @@
+//la action hace una llamada al store
+//action:objeto que describe lo que va a pasar o paso
+
 import axios from "axios";
 
 export const GET_VIDEOGAMES = "GET_VIDEOGAMES";
 export const GET_BY_NAME = "GET_BY_NAME";
+export const POST_VIDEOGAME = "POST_VIDEOGAME"
 // export const GET_BY_DETAIL = "GET_BY_DETAIL";
 // export const FILTER_BY_CONTINENT = "FILTER_BY_CONTINENT";
 // export const FILTER_BY_ACTIVITY = "FILTER_BY_ACTIVITY";
@@ -59,30 +63,36 @@ export const getByName = (name) => {
 //   };
 // };
 
-// export function createActivities  (data)  {
-//   console.log(data);
-//   return async (dispatch) => {
-//     const newActivity = await axios.post("http://localhost:3001/activities", data);
-//     return newActivity;
-//   };
-//     //  return function (dispatch) {
-//     //    return axios
-//     //      .post("http://localhost:3001/activities", data)
-//     //      .then((response) => response.data)
-//     //      .then((response) => {
-//     //        dispatch({ type: CREATE_ACTIVITIES, payload: response });
-//     //        alert("Se creo la actividad. ");
-//     //        return true;
-//     //      })
-//     //      .catch((error) => {
-//     //        console.log(error);
-//     //        alert(
-//     //          "No se puede crear la actividad. Error: " + error.response.data
-//     //        );
-//     //        return false;
-//     //      });
-//     //  };
-// }
+export function postVideogame  (data)  {
+  //  return async (dispatch) => {
+  //   const newVideogame = await axios.post("http://localhost:3001/videogame", data);
+    
+  //    return dispatch({
+  //     type: POST_VIDEOGAME,
+  //      payload: newVideogame,
+      
+  //    })
+      
+  // }
+  // };
+     return function (dispatch) {
+       return axios
+         .post("http://localhost:3001/videogame", data)
+         .then((response) => response.data)
+         .then((response) => {
+           dispatch({ type: POST_VIDEOGAME, payload: response });
+           alert("Se creo la actividad. ");
+           return true;
+         })
+         .catch((error) => {
+           
+           alert(
+             "No se puede crear la actividad. Error: " + error.response.data
+           );
+           return false;
+         });
+     };
+};
 
 // export const filterContinent = (payload) => {
 //   return {

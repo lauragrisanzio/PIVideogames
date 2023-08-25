@@ -6,7 +6,7 @@ import styles from "./searchBar.module.css";
 
 function SearchBar() {
 
-  const allVideogames = useSelector(state => state.allVideogames)
+  // const allVideogames = useSelector(state => state.allVideogames)
   const dispatch = useDispatch();
 
      const [searchString, setSearchString] = useState("");
