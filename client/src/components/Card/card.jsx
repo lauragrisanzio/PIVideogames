@@ -11,15 +11,16 @@ function Card({ videogame }) {  //viene por props de Cards
   return (
       <div className={styles.card}>
     <div className={styles.cardContainer}>
-        {/* <Link className={styles.Link} to={`/home/${id}`}> */}
         {/*se puede hacer accesible la imagen????? VER!!! 
         IMAGEN POR DEFECTO CUANDO ES CREADO POR EL USUARIO*/}
         <img src={background_image} alt="" />
-
         <h2>{name}</h2>
+        <h5>{genres}</h5>
+        
+        <Link className={styles.Link} to={`/home/${id}`}>
+          <p>MORE DETAILS</p>
+        </Link>
 
-        <p>{genres}</p>
-        {/* </Link> */}
       </div>
     </div>
   );

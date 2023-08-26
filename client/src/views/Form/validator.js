@@ -1,4 +1,4 @@
-var regxp = /^([a-zA-Z0-9_-])$/;
+var regxp = /^([a-zA-Z0-9])+$/i
 var allowedExtensionsImage = /(.jpg|.jpeg|.png|.gif)$/i;
 var dateRegexp = /^\d{4}([\-/.])(0?[1-9]|1[1-2])\1(3[01]|[12][0-9]|0?[1-9])$/; //formato: año/mes/dia
 
@@ -20,9 +20,9 @@ export const validator = (videogame) => {
    if (!videogame.description) {
      errors.description1 = "Must be complete field: Image";
    }
- if (videogame.description.length > 100) {
-    errors.description2 = "Description must not exceed 100 characters";
-  }
+ if (videogame.description.length > 100 || videogame.description.length < 30) {
+   errors.description2 = "Description must be 10 and 100 characters";
+ }
   if (!videogame.platforms) {
     errors.platforms1 = "Must be complete field: Platforms";
   }
@@ -32,8 +32,8 @@ export const validator = (videogame) => {
   if (!videogame.released) {
     errors.released1 = "Must be complete field: Date";
   }
-  if (!dateRegexp.test(videogame.season)) {
-    errors.released2 = "Incorrect date";
+  if (!dateRegexp.test(videogame.released)) {
+    errors.released2 = "Incorrect date. Correct format: aaaa/mm/dd";
   }
   if (!videogame.rating) {
     errors.rating1 = "Must be complete field: Rating";

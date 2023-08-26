@@ -20,11 +20,11 @@ function Home() {
 
   //componente quiero que estes suscripto a cualquier cambio que ocurra en el estado allVideogames
   const allVideogames = useSelector((state) => state.allVideogames); //se indica al componente de que estado depende, a que estado quiero estar suscripto
-   
+  // console.log(allVideogames);
  
    useEffect(() => {
     dispatch(getVideogames()); //1° parametro lo que queremos ejecutar al momento de hacer el dispatch, cuando se monta
-// // //     // return(()=>{}) //=> en esta callback se ejecuta una fx al momento de desmontar
+// return(()=>{}) //=> en esta callback se ejecuta una fx al momento de desmontar
   }, [dispatch]); //2° parametro una array de dependecia
 
   // const handleOnClick = () => {

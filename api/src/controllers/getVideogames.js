@@ -3,7 +3,7 @@ const { Genres, Videogame } = require("../db");
 
 const {API_KEY} = process.env
 
-const getVideogames = async (name) => {
+const getVideogames = async () => {
 
  
     //traigo info de la api - son 6 paginas porque tienen que son un millon y minimo te piden 100 =(

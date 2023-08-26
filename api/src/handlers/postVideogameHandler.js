@@ -16,8 +16,7 @@ const postVideogameHandler = async (req, res) => {
       if (
         !name ||
         !description ||
-        !platforms ||
-        !background_image ||
+        !platforms  ||
         !released ||
         !rating ||
         !GenreId

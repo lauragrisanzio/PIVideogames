@@ -6,7 +6,7 @@ import axios from "axios";
 export const GET_VIDEOGAMES = "GET_VIDEOGAMES";
 export const GET_BY_NAME = "GET_BY_NAME";
 export const POST_VIDEOGAME = "POST_VIDEOGAME"
-// export const GET_BY_DETAIL = "GET_BY_DETAIL";
+export const GET_BY_ID = "GET_BY_ID";
 // export const FILTER_BY_CONTINENT = "FILTER_BY_CONTINENT";
 // export const FILTER_BY_ACTIVITY = "FILTER_BY_ACTIVITY";
 // export const ORDER_BY_AZ = "ORDER_BY_AZ";
@@ -51,18 +51,17 @@ export const getByName = (name) => {
     }
   };
 };
-
-// export const getByDetail = (id) => {
-//   return async (dispatch) => {
-//     const response = await axios(`http://localhost:3001/countries/${id}`);
-//     return dispatch({
-//       type: "GET_BY_DETAIL",
-//       payload: response.data
-      
-//     });
-//   };
-// };
-
+//detail:
+export const getById = (id) => {
+  return async (dispatch) => {
+    const response = await axios(`http://localhost:3001/videogame/${id}`);
+    console.log(response);
+    return dispatch({
+      type: GET_BY_ID,
+      payload: response.data
+    });
+  };
+};
 export function postVideogame  (data)  {
   //  return async (dispatch) => {
   //   const newVideogame = await axios.post("http://localhost:3001/videogame", data);
