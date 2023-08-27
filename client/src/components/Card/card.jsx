@@ -9,7 +9,8 @@ function Card({ videogame }) {  //viene por props de Cards
   // console.log(videogame);
    
   return (
-      <div className={styles.card}>
+    <div className={styles.card}>
+      
     <div className={styles.cardContainer}>
         {/*se puede hacer accesible la imagen????? VER!!! 
         IMAGEN POR DEFECTO CUANDO ES CREADO POR EL USUARIO*/}

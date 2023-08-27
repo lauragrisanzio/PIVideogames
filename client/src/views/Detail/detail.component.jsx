@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-import { getById } from "../../redux/actions.js";
+import { getById, clearDetail } from "../../redux/actions.js";
 
 import styles from "./detail.module.css";
 
@@ -16,38 +16,64 @@ const Detail = () => {
 
   const { id } = useParams();
 
-  const [details, setDetails] = useState({})
+  const [details, setDetails] = useState(true)
 
   useEffect(() => {
     dispatch(getById(id))
    //funcion que limpie el detail
-    return setDetails({})
-  }, [ dispatch,id])
+    return () => {
+      dispatch(clearDetail());
+    };      
+  }, [dispatch,id])
   
- return (
+  return (
     <div>
-      <h1>VIDEOGAMES DETAIL</h1>
-      {detail.name ? (
-        <>
-          <h1>
-            {detail.name}
-            <h4>(Id: {detail.id})</h4>
-          </h1>
-          <img src={detail.background_image} alt="" />
-          {/* imagen por defecto??*/}
-          <p>Platforms: {detail.platforms}</p>
-          <p>Description: {detail.description}</p>
-          <p>Date create at: {detail.released}</p>
-          <p>Rating: {detail.rating} </p>
-          <p>Rating Top: {detail.rating_top}</p>
-          <p>Genres: {detail.genres || detail.Genres.map((g) => g.name)}</p> 
-        </>
-      ) : (
-        <div>
-          <h3>Loading...</h3>
-          <Loading />
-        </div>
-      )}
+      <div className={styles.h1}>
+        <h1>VIDEOGAME DETAIL</h1>
+      </div>
+      <br />
+      <div className={styles.container}>
+        {detail.name ? (
+          <>
+            <h1>{detail.name}</h1>
+            <br />
+            <img className={styles.img} src={detail.background_image} alt="" />
+            {/* imagen por defecto??*/}
+            <p>
+              Name: {detail.name} (Id: {detail.id})
+            </p>
+            <br />
+            <p>Platforms: {detail.platforms}</p>
+           
+            <br />
+            <p>
+              Description:
+              {detail.description
+                .split("<p>")
+                .join("")
+                .split("<br />")
+                .join("")
+                .split("</p>").join("")}
+            </p>
+            <br />
+            <p>Date create at: {detail.released}</p>
+            <br />
+            <p>Rating: {detail.rating} </p>
+            <br />
+            <p>Rating Top: {detail.rating_top}</p>
+            <br />
+            <p>
+              Genres:
+              {detail.genres?.map((g) => (g.name ? g.name : g)).join(", ")}
+            </p>
+          </>
+        ) : (
+          <div>
+            <h3>Loading...</h3>
+            <Loading />
+          </div>
+        )}
+      </div>
     </div>
   );
 };

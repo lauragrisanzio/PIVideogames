@@ -5,7 +5,7 @@ function Loading() {
     <div>
       <div className={styles.loading}>
         {/* <h1>LOADING</h1> */}
-      <img src="https://i.gifer.com/3yDz.gif" alt="" />
+        <img className={styles.gif } src="https://i.gifer.com/5IPe.gif" alt="" />
       </div>
     </div>
   );

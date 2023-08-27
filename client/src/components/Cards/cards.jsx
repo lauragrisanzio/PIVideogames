@@ -1,5 +1,6 @@
 //componente que engloba a todos los videojuegos
 import Card from "../Card/card"
+import Loading from "../Loading/loading";
 
 import styles from "./cards.module.css"
 
@@ -7,10 +8,11 @@ function Cards({ allVideogames}) {
   
   return (
     <div>
-      <div className={styles.cardList}>
-        {allVideogames &&
-          allVideogames.map((videogame) => <Card videogame={videogame} />)}
-      </div>
+     
+        <div className={styles.cardList}>
+          {allVideogames &&
+            allVideogames.map((videogame) => <Card videogame={videogame} key={videogame.id} />)}
+        </div> 
     </div>
   );
 }

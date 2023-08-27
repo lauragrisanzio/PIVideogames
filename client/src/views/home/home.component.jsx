@@ -4,10 +4,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 import SearchBar from "../../components/SearchBar/searchBar";
-import {getVideogames}  from "../../redux/actions";
+import Loading from "../../components/Loading/loading";
+import Cards from "../../components/Cards/cards";
+import Header from "../../components/Headers/header";
+
+import { getVideogames } from "../../redux/actions";
 
 // import NavBar from "../../components/navbar/navbar.component";
-import Cards from "../../components/Cards/cards";
 // import Header from "../../components/headers/header.component";
 // import Pagination from "../../components/pagination/pagination.component";
 
@@ -20,7 +23,7 @@ function Home() {
 
   //componente quiero que estes suscripto a cualquier cambio que ocurra en el estado allVideogames
   const allVideogames = useSelector((state) => state.allVideogames); //se indica al componente de que estado depende, a que estado quiero estar suscripto
-  // console.log(allVideogames);
+  console.log(allVideogames);
  
    useEffect(() => {
     dispatch(getVideogames()); //1° parametro lo que queremos ejecutar al momento de hacer el dispatch, cuando se monta
@@ -28,8 +31,8 @@ function Home() {
   }, [dispatch]); //2° parametro una array de dependecia
 
   // const handleOnClick = () => {
-   //   getVideogames();
-    // };
+  //  getVideogames()
+  //   };
 // console.log(handleOnClick()); 
   
 //   const countriesPage = allCountries.slice(0, 10);
@@ -59,8 +62,9 @@ function Home() {
         muestre un total de 10 países por página.
       </p>
       <button>ALL VIDEOGAMES</button>;
+      <Header/>
       <div className={styles.cardList}>
-        <Cards allVideogames={allVideogames} />
+        <Cards allVideogames={allVideogames} /> 
       </div>
     </div>
   );

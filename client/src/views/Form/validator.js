@@ -1,4 +1,4 @@
-var regxp = /^([a-zA-Z0-9])+$/i
+var regxp = /^([a-zA-Z0-9\s])+$/i
 var allowedExtensionsImage = /(.jpg|.jpeg|.png|.gif)$/i;
 var dateRegexp = /^\d{4}([\-/.])(0?[1-9]|1[1-2])\1(3[01]|[12][0-9]|0?[1-9])$/; //formato: año/mes/dia
 
