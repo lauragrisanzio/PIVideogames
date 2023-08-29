@@ -1,14 +1,14 @@
 //hook para controlar el ciclo de vida: useEffect
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+
 
 import SearchBar from "../../components/SearchBar/searchBar";
 import Loading from "../../components/Loading/loading";
 import Cards from "../../components/Cards/cards";
 import Header from "../../components/Headers/header";
 
-import { getVideogames } from "../../redux/actions";
+import { getGenres, getVideogames } from "../../redux/actions";
 
 // import NavBar from "../../components/navbar/navbar.component";
 // import Header from "../../components/headers/header.component";
@@ -23,17 +23,16 @@ function Home() {
 
   //componente quiero que estes suscripto a cualquier cambio que ocurra en el estado allVideogames
   const allVideogames = useSelector((state) => state.allVideogames); //se indica al componente de que estado depende, a que estado quiero estar suscripto
-  console.log(allVideogames);
+
  
    useEffect(() => {
     dispatch(getVideogames()); //1° parametro lo que queremos ejecutar al momento de hacer el dispatch, cuando se monta
-// return(()=>{}) //=> en esta callback se ejecuta una fx al momento de desmontar
+    dispatch(getGenres())
+    // return(()=>{}) //=> en esta callback se ejecuta una fx al momento de desmontar
   }, [dispatch]); //2° parametro una array de dependecia
 
-  // const handleOnClick = () => {
-  //  getVideogames()
-  //   };
-// console.log(handleOnClick()); 
+
+  
   
 //   const countriesPage = allCountries.slice(0, 10);
 //   const countriesPerPage = 10;
@@ -46,25 +45,17 @@ function Home() {
 
   return (
     <div className={styles.home}>
-      {/* <NavBar handleChange={handleChange} handleSubmit={handleSubmit} />
-      <Header />
-      <Pagination
-        currentPage={currentPage}
-        pageNumber={pageNumber}
-        pageClick={pageClick}
-      /> */}
       <h1>VIEW HOME</h1>
-      <SearchBar/>
+      <SearchBar />
       <p>
-        Esta es la HOME page: tiene que tener: *Botones/Opciones para filtrar
-        por continente y por tipo de actividad turística. *Paginado: el listado
-        de países se hará por partes. Tu SPA debe contar con un paginado que
-        muestre un total de 10 países por página.
+      Tu SPA debe
+        contar con un paginado que muestre un total de 15 videojuegos por
+        página.
       </p>
-      <button>ALL VIDEOGAMES</button>;
-      <Header/>
+    
+      <Header />
       <div className={styles.cardList}>
-        <Cards allVideogames={allVideogames} /> 
+        <Cards allVideogames={allVideogames} />
       </div>
     </div>
   );

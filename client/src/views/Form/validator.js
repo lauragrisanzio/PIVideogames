@@ -39,7 +39,7 @@ export const validator = (videogame) => {
     errors.rating1 = "Must be complete field: Rating";
   }
   if ( videogame.rating <1 || videogame.rating > 10) {
-    errors.rating2 = "Rating must be between 1 and 10";
+    errors.rating2 = "Rating must be between 1 and 5";
   }
 if (!videogame.rating_top || videogame.rating_top < 1 || videogame._top > 5) {
   errors.rating_top1 = "Rating top must be between 1 and 5";

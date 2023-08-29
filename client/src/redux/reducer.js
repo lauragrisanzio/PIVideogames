@@ -3,10 +3,9 @@
 //reducer: nuevo estado a mostrar - se encarga de procesar las acciones
 import {
   GET_VIDEOGAMES, GET_BY_NAME, POST_VIDEOGAME, GET_BY_ID, CLEAR_DETAIL, GET_GENRES,
-  ORDER_BY_AZ, ORDER_BY_RATING
+  ORDER_BY_AZ, ORDER_BY_RATING, FILTER_GENRES, FILTER_BY_DB
 } from "./actions";
-// , GET_BY_NAME, GET_BY_DETAIL, FILTER_BY_CONTINENT, FILTER_BY_ACTIVITY,
-//   ORDER_BY_AZ, ORDER_BY_POPULATION, GET_ACTIVITIES, CREATE_ACTIVITIES} from "./actions";
+
 
 const initialState = {
   allVideogames: [],
@@ -58,8 +57,9 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         detail: [],
       };
+
     case ORDER_BY_AZ:
-      const order = [...state.allVideogames].sort((a, b) => {
+      const order = [...state.videogames].sort((a, b) => {
         if (action.payload === "A-Z") {
           return a.name > b.name ? 1 : -1;
         } else {
@@ -72,7 +72,7 @@ const rootReducer = (state = initialState, action) => {
       };
 
     case ORDER_BY_RATING:
-      const orderRating = [...state.allVideogames].sort((a, b) => {
+      const orderRating = [...state.videogames].sort((a, b) => {
         if (action.payload === "Lower Rating") {
           return a.rating > b.rating ? 1 : -1;
         } else {
@@ -83,6 +83,38 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         allVideogames: orderRating,
       };
+
+    case FILTER_GENRES:
+      const filterGenres = state.allVideogames;
+      const genresFilter =
+        action.payload === "All"
+          ? state.videogames
+          : state.videogames.filter((v) => v.genres.includes(action.payload));
+      //   console.log(filterGenres);
+      //  console.log(genresFilter);
+      return {
+        ...state,
+
+        allVideogames: genresFilter,
+      };
+
+    case FILTER_BY_DB:
+      // const filterV = state.videogames;
+      const filterVideogames =
+        action.payload === "db"
+          ? state.videogames.filter((g) => g.id.toString().includes("-"))
+           //     : state.videogames.filter((g) =>  !g.id.toString().includes("-"));
+          : action.payload=== "api" ?
+            state.videogames.filter((g) => !g.id.toString().includes("-"))
+            : [...state.videogames]
+      // console.log(filterV);
+      console.log(filterVideogames);
+      return {
+        ...state,
+
+        allVideogames: filterVideogames,
+      };
+
     default:
       return state;
   };

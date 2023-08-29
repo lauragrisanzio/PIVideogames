@@ -9,8 +9,8 @@ export const POST_VIDEOGAME = "POST_VIDEOGAME"
 export const GET_BY_ID = "GET_BY_ID";
 export const CLEAR_DETAIL = "CLEAR_DETAIL"
 export const GET_GENRES = "GET_GENRES";
-// export const FILTER_BY_CONTINENT = "FILTER_BY_CONTINENT";
-// export const FILTER_BY_ACTIVITY = "FILTER_BY_ACTIVITY";
+export const FILTER_GENRES = "FILTER_GENRES";
+export const FILTER_BY_DB = "FILTER_BY_DB";
 export const ORDER_BY_AZ = "ORDER_BY_AZ";
 export const ORDER_BY_RATING = "ORDER_BY_RATING";
 
@@ -66,7 +66,7 @@ export function postVideogame(data) {
   try {
     return async (dispatch) => {
     const newVideogame = await axios.post("http://localhost:3001/videogame", data);
-    console.log(data);
+    // console.log(data);
     return dispatch({
       type: POST_VIDEOGAME,
       payload: newVideogame.data,
@@ -78,9 +78,6 @@ export function postVideogame(data) {
     return alert("No se puede crear la actividad. Error: " + error.response.data);
    
   }
-  
-  
-  
     //  return function (dispatch) {
     //    return axios
     //      .post("http://localhost:3001/videogame", data)
@@ -108,22 +105,24 @@ export const clearDetail = () => {
     }
   );
 };
-// export const filterContinent = (payload) => {
-//   return {
-//     type: "FILTER_BY_CONTINENT",
-//     payload,
-//   };
-// };
 
-// export const filterByActivity = (activities) => {
-//   console.log(activities);
-//   return {
-//     type: "FILTER_BY_ACTIVITY",
-//     payload: activities,
-//   };
-// };
+export const filterGenres = (payload) => dispatch =>{
+  return dispatch ({
+    type: FILTER_GENRES,
+    payload: payload,  //objeto literal no es necesario
+  });
+};
+
+export const filterByDB = (payload) => {
+  console.log(payload);
+  return {
+    type: FILTER_BY_DB,
+    payload: payload,
+  };
+};
 
 export const orderByAz = (order) => {
+  console.log(order);
 return {
   type: ORDER_BY_AZ,
   payload: order,
@@ -132,7 +131,7 @@ return {
 };
 
 export const orderByRating = (order) => {
-
+console.log(order);
   return {
   type: ORDER_BY_RATING,
   payload: order,

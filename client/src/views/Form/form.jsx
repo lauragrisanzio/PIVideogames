@@ -94,7 +94,7 @@ const Form = () => {
               <input
                 placeholder="Write a videogames´s game"
                 type="text"
-                value={values.name}
+                value={values.name.toUpperCase()}
                 name="name"
                 onChange={(e) => handleChange(e)}
               />
@@ -159,7 +159,7 @@ const Form = () => {
                 name="platforms"
                placeholder="Platform to play..."
                 type="text"
-                value={values.platforms}
+                value={values.platforms.join}
                 onChange={(e) => handleChange(e)}
               />
               {errors.platforms1 ? (
@@ -202,9 +202,10 @@ const Form = () => {
             <br />
             <div className="selectgenres">
               <label htmlFor="genres">
-                Select genres
+                Select genres:
                 </label>
-                <select
+              <select
+                value={values.GenreId} //ESTO ES NUEVO VER SI FUNCIONA!!!
                   name="genres"
                   size={1}
                   onChange={(e) => handleSelectGenres(e)}
