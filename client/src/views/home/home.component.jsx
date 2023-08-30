@@ -7,6 +7,7 @@ import SearchBar from "../../components/SearchBar/searchBar";
 import Loading from "../../components/Loading/loading";
 import Cards from "../../components/Cards/cards";
 import Header from "../../components/Headers/header";
+import Paginate from "../../components/Paginate/paginate";
 
 import { getGenres, getVideogames } from "../../redux/actions";
 
@@ -18,44 +19,39 @@ import styles from"./home.module.css";
 
 
 function Home() {
-
   const dispatch = useDispatch(); //se le envia una action al estado
 
   //componente quiero que estes suscripto a cualquier cambio que ocurra en el estado allVideogames
   const allVideogames = useSelector((state) => state.allVideogames); //se indica al componente de que estado depende, a que estado quiero estar suscripto
 
- 
-   useEffect(() => {
+  useEffect(() => {
     dispatch(getVideogames()); //1° parametro lo que queremos ejecutar al momento de hacer el dispatch, cuando se monta
-    dispatch(getGenres())
+    dispatch(getGenres());
     // return(()=>{}) //=> en esta callback se ejecuta una fx al momento de desmontar
   }, [dispatch]); //2° parametro una array de dependecia
 
-
-  
-  
-//   const countriesPage = allCountries.slice(0, 10);
-//   const countriesPerPage = 10;
-//   const [currentPage, setCurrentPage] = useState(1); //current page= pagina actual
-//   const pageNumber = Math.ceil(allCountries / countriesPerPage);
-  
-//   const pageClick = (pageNumber) => {
-//     setCurrentPage(pageNumber)
-//   }
+  //PAGINADO!!!!:
+  const [currentPage, setCurrentPage] = useState(1); //current page= pagina actual
+  const [perPage, setPerPage] = useState(15)
+  //const videogamesPerPage = 15;//lo piuse como estado
+  const totalVideogames = allVideogames.length;
+  const totalPages = Math.ceil(totalVideogames / perPage);  //cantidad de paginas que va a tener la SPA
+  const numberStart = (currentPage - 1) * perPage;
+  const numberEnd = (currentPage - 1) * perPage + perPage;
+  const slicePage = allVideogames.slice(numberStart, numberEnd)
 
   return (
     <div className={styles.home}>
       <h1>VIEW HOME</h1>
       <SearchBar />
       <p>
-      Tu SPA debe
-        contar con un paginado que muestre un total de 15 videojuegos por
-        página.
+        Tu SPA debe contar con un paginado que muestre un total de 15
+        videojuegos por página.
       </p>
-    
       <Header />
+      <Paginate currentPage={currentPage } setCurrentPage={setCurrentPage} totalPages={totalPages}  />
       <div className={styles.cardList}>
-        <Cards allVideogames={allVideogames} />
+        <Cards allVideogames={allVideogames} slicePage={slicePage } />
       </div>
     </div>
   );

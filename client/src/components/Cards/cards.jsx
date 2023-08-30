@@ -4,14 +4,14 @@ import Loading from "../Loading/loading";
 
 import styles from "./cards.module.css"
 
-function Cards({ allVideogames}) {
+function Cards({slicePage}) {
   
   return (
     <div>
      
         <div className={styles.cardList}>
-          {allVideogames &&
-            allVideogames.map((videogame) => <Card videogame={videogame} key={videogame.id} />)}
+          {slicePage &&
+            slicePage.map((videogame) => <Card videogame={videogame} key={videogame.id} />)}
         </div> 
     </div>
   );

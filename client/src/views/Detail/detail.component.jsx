@@ -16,7 +16,7 @@ const Detail = () => {
 
   const { id } = useParams();
 
-  const [details, setDetails] = useState(true)
+  // const [details, setDetails] = useState(true)
 
   useEffect(() => {
     dispatch(getById(id))
