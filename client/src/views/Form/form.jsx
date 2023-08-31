@@ -84,7 +84,7 @@ const Form = () => {
     });
   }
     return (
-      <div >
+      <div className={styles.form} >
         <h1>CREAR UN NUEVO JUEGO</h1>
         <h2>Animate a crear un nuevo videojuego!!</h2>
         <div className={styles.form}>

@@ -18,7 +18,7 @@ const Paginate = ({ currentPage, setCurrentPage, totalPages }) => {
 
     return (
       <div className={styles.container}>
-        <div>paginate</div>
+       
         <button
           disabled={input === 1}
           className={styles.previousPag}

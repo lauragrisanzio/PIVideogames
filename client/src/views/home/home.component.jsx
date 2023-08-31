@@ -42,16 +42,20 @@ function Home() {
 
   return (
     <div className={styles.home}>
-      <h1>VIEW HOME</h1>
-      <SearchBar />
-      <p>
-        Tu SPA debe contar con un paginado que muestre un total de 15
-        videojuegos por página.
-      </p>
-      <Header />
-      <Paginate currentPage={currentPage } setCurrentPage={setCurrentPage} totalPages={totalPages}  />
-      <div className={styles.cardList}>
-        <Cards allVideogames={allVideogames} slicePage={slicePage } />
+      
+      <div>
+        <h1>VIEW HOME</h1>
+        <SearchBar />
+
+        <Header />
+        <Paginate
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          totalPages={totalPages}
+        />
+        <div className={styles.cardList}>
+          <Cards allVideogames={allVideogames} slicePage={slicePage} />
+        </div>
       </div>
     </div>
   );

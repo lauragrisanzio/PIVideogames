@@ -7,7 +7,7 @@ import styles from "./cards.module.css"
 function Cards({slicePage}) {
   
   return (
-    <div>
+    <div className={styles.cardcontainer} >
      
         <div className={styles.cardList}>
           {slicePage &&
