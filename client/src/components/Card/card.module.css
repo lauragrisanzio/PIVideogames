@@ -1,5 +1,6 @@
 .cardContainer {
- border: solid 2px #21f3d0 ;
+ /* border: solid 2px #21f3d0 ; */
+ border: solid 2px black ;
  background-color: blue;
  position: relative;
 width: 300px;
@@ -84,6 +85,7 @@ width: auto;
 
  .name{
    font-size: 30px;
+   font-family:'Offside', cursive;
  }
 
  .genres{

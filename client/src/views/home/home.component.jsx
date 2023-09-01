@@ -44,7 +44,7 @@ function Home() {
     <div className={styles.home}>
       
       <div>
-        <h1>VIEW HOME</h1>
+        <h1 className={styles.titleHome}>VIDEOGAME´S WORLD</h1>
         <SearchBar />
 
         <Header />

@@ -1,45 +1,40 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
-body{
+/* body{
   background: #f2f2f2;
   font-family: 'Open Sans', sans-serif;
+} */
+
+.wrap{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
 }
 
 .searchBox {
-    /* display: flex;
-
- align-items: center;
-    
-    outline: none;
-    padding: 10px;
-    width: 150px;
-    line-height: 30px;
-    margin-bottom: 30px; */
-    width: 150%;
-
-  position: relative;
+  width: 100%;
+  /* border: solid white 5px; */
   display: flex;
-  /* border: solid 3px; */
   justify-content: center;
-  justify-items: center;
-  right: 20%;
-  padding: 20px;
- 
+  align-items: center;
+  margin-bottom: 25px;
+  margin-top: 20px;
 }
 
 .searchBox ::placeholder{
 font-size: medium;
-font-style: italic
+font-style:initial;
 
 }
-
+i{
+  font-style: initial;
+}
 .searchTerm{
-  width: 10%;
-  border: 3px solid rgb(98, 4, 98);
-  border-right: none;
+  width: 30%;
+  border:  solid 3px blue;
   padding: 5px;
-  height: 40px;
-  border-radius: 5px 0 0 5px;
+  height: 45px;
+  /* border-radius: 5px 5px 5px 5px; */
   outline: none;
   color: #9DBFAF;
   /* cursor:context-menu; */
@@ -50,38 +45,24 @@ font-style: italic
 }
 
 .searchButton{
-  width: 100px;
-  height: 40px;
-  border: 1px solid rgb(98, 4, 98);
-  background: rgb(98, 4, 98);
-  text-align: center;
-  color: #fff;
-  border-radius: 0 5px 5px 0;
-  cursor: pointer;
-  font-size: 20px;
-  
- }
-
- .searchButton:hover {
-  color: rgba(255, 255, 255, 1) !important;
-  box-shadow: 0  4px 16px rgb(98, 4, 98);
-  transition: all 0.3s ease;
-
- }
-/* 
-.buttonActivities{
-  position: relative;
-  left: 90px;
-  width: 180px;
-  text-decoration: underline;
-  height: 40px;
-  border: 1px solid rgb(98, 4, 98);
-  background: rgb(98, 4, 98);
+  width: 120px;
+  height: 45px;
+  border: 1px solid blue;
+  background: blue;
   text-align: center;
   color: #fff;
   border-radius: 5px 5px 5px 5px;
   cursor: pointer;
-  font-size: 25px;
-  font-style:normal;
-  margin: 0 0 0 14px;
-} */
+  font-size: 20px;
+  margin: 5px;
+ }
+
+
+
+ .searchButton:hover {
+  /* color: rgba(255, 255, 255, 1) !important;
+  box-shadow:  0px 4px 16px 3px lightblue;
+  transition: all 0.3s ease; */
+   transform: scale(.96)
+
+ }

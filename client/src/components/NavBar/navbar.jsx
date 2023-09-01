@@ -5,8 +5,8 @@ import styles from "./navbar.module.css"
 const NavBar = () => {
    return (
      <div className={styles.NavBar}>
-       <Link to="/home"> HOME </Link>
-       <Link to="/form"> FORM </Link>
+       <Link className={styles.link} to="/home"> HOME </Link>
+       <Link className={styles.link} to="/form"> FORM </Link>
      </div>
    );
 };

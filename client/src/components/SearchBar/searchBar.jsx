@@ -38,7 +38,7 @@ function SearchBar() {
           type="submit"
           onClick={handleSubmit}
         >
-          <i>Search </i>
+          <i>Search</i>
         </button>
         {/* <Link to={"/activity"}>
           <button className={styles.buttonActivities}>Activities</button>
