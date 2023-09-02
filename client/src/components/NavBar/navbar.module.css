@@ -1,23 +1,45 @@
 .NavBar{
     /* background-color: rgb(112, 112, 254); */
-    background-color: rgba(53, 53, 159, 0.968);
+    background-image: url("../../../assets/form/pattern.jpeg"); 
+    /* background-color: rgba(53, 53, 159, 0.968); */
    display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    border: solid 1px;
+    
+    /* height: 80px; */
     /* margin-bottom: 9px; */
+}
+.titleHome{
+  color: black;
+ background-color: rgb(226, 226, 225);
+  font-family:'Offside', cursive;
+  text-align: center;
+  font-size: 35px;
+  font-weight:bolder;
+  margin-top: 5px;
+  margin-left: 300px;
+   margin-right: 300px;
+  letter-spacing: 7px;
+  word-spacing: 4px;
+  border: solid 3px;
 }
 
 .link{
-    margin: 3px;
-    padding: 5px;
+    background-color: rgb(226, 226, 225);
+    margin: 4px;
+    width: 80px;
+   text-align: center;
+    padding-top: 9px;
     border: solid 3px;
-    color: aqua;
+    color: black;
     font-size: large;
     font-weight: bolder;
     text-decoration: none;
     font-family:'Offside', cursive;
+    
 }
 
 .link:hover{
     /* background-color: whitesmoke; */
-    opacity: 0.6;
+    opacity: 0.8;
 }

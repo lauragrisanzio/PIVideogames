@@ -42,12 +42,14 @@ function Home() {
 
   return (
     <div className={styles.home}>
-      
       <div>
-        <h1 className={styles.titleHome}>VIDEOGAME´S WORLD</h1>
-        <SearchBar />
-
-        <Header />
+      <div className={styles.header}>
+          <Header />
+        
+      </div>
+        {/* <h1 className={styles.titleHome}>VIDEOGAME´S WORLD</h1> */}
+        
+  <SearchBar />
         <Paginate
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}

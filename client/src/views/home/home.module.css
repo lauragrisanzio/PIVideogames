@@ -7,7 +7,7 @@
   background-color: blue;
 } */
 
-.titleHome{
+/* .titleHome{
   color: white;
   font-family:'Offside', cursive;
   text-align: center;
@@ -15,7 +15,7 @@
   font-weight:bolder;
   margin-top: 5px;
   text-decoration:underline;
-}
+} */
 
 .home{
   display: flex;
@@ -32,3 +32,10 @@
   justify-content: center
 
 }
+
+/* .header{
+  display: flex;
+  flex-direction: row;
+justify-self: start;
+  align-items: start;
+} */

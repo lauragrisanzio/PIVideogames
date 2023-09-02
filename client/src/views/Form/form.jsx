@@ -8,6 +8,7 @@ import { validator } from "./validator";
 
 import styles from "./form.module.css";
 
+
 const Form = () => {
 
   // const allVideogames = useSelector((state) => state.allVideogames);
@@ -83,13 +84,16 @@ const Form = () => {
       GenreId: [],
     });
   }
-    return (
-      <div className={styles.form} >
-        <h1>CREAR UN NUEVO JUEGO</h1>
-        <h2>Animate a crear un nuevo videojuego!!</h2>
-        <div className={styles.form}>
+  return (
+    <div className={styles.container}>
+      <div className={styles.form}>
+        <div className={styles.tittle}>
+          <h1>CREAR UN NUEVO JUEGO</h1>
+          <h2>Animate a crear un nuevo videojuego!!</h2>
+        </div>
+        <div className={styles.options}>
           <form onSubmit={(e) => handleSubmit(e)}>
-           <div className="form">
+            <div className="form">
               <label htmlFor="name">Name:</label>
               <input
                 placeholder="Write a videogames´s game"
@@ -157,7 +161,7 @@ const Form = () => {
               <label htmlFor="platforms"> Platforms:</label>
               <input //SI ME ALCANZA EL TIEMPO, GENERAR EL MODELO Y TRAERME LAS PLATFORMS DE LA API
                 name="platforms"
-               placeholder="Platform to play..."
+                placeholder="Platform to play..."
                 type="text"
                 value={values.platforms.join}
                 onChange={(e) => handleChange(e)}
@@ -201,23 +205,19 @@ const Form = () => {
             </div>
             <br />
             <div className="selectgenres">
-              <label htmlFor="genres">
-                Select genres:
-                </label>
+              <label htmlFor="genres">Select genres:</label>
               <select
                 value={values.GenreId} //ESTO ES NUEVO VER SI FUNCIONA!!!
-                  name="genres"
-                  size={1}
-                  onChange={(e) => handleSelectGenres(e)}
-                >
-                  {genres.map((g) => (
-                    <option value={g.id}>{g.name}</option>
-                  ))}
-                </select>
+                name="genres"
+                size={1}
+                onChange={(e) => handleSelectGenres(e)}
+              >
+                {genres.map((g) => (
+                  <option value={g.id}>{g.name}</option>
+                ))}
+              </select>
               <div>{values.GenreId.join("-")}</div>
-              {errors.GenreId1 && (
-                <p>{errors.GenreId1}</p>
-              )}
+              {errors.GenreId1 && <p>{errors.GenreId1}</p>}
             </div>
 
             <div>
@@ -226,7 +226,8 @@ const Form = () => {
           </form>
         </div>
       </div>
-    );
+    </div>
+  );
   };
 
 

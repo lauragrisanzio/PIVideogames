@@ -18,13 +18,12 @@ const Paginate = ({ currentPage, setCurrentPage, totalPages }) => {
 
     return (
       <div className={styles.container}>
-       
         <button
           disabled={input === 1}
           className={styles.previousPag}
           onClick={previousPage}
         >
-          👈{" "}
+         PREVIOUS
         </button>
         <input
           name="page"
@@ -32,7 +31,14 @@ const Paginate = ({ currentPage, setCurrentPage, totalPages }) => {
           value={input}
           className={styles.input}
         />
-        <span className={styles.pagActual}> ... {totalPages}</span>
+        {/* <input
+          name="page"
+          autoComplete="off"
+          value={input + 1 || input === totalPages}
+          className={styles.input}
+        /> */}
+        <span className={styles.pagActual}> OF </span>
+        <span className={styles.pagActual}> {totalPages}</span>
         {/* //SPAN: Para que el usuario sepa en
         que página se encuentra, y cuantas páginas hay disponibles */}
         <button
@@ -40,7 +46,7 @@ const Paginate = ({ currentPage, setCurrentPage, totalPages }) => {
           className={styles.nextPag}
           onClick={nextPage}
         >
-          👉
+          NEXT
         </button>
       </div>
     );
