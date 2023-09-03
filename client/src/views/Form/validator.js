@@ -44,8 +44,8 @@ export const validator = (videogame) => {
 if (!videogame.rating_top || videogame.rating_top < 1 || videogame._top > 5) {
   errors.rating_top1 = "Rating top must be between 1 and 5";
   }
-  if (videogame.GenreId.length === 0) {
-  errors.GenreId1 = "Must select a genre"
+  if (videogame.GenreId.length < 1) {
+  errors.GenreId1 = "Must select a minimun two genres"
 }
   return errors;
 };

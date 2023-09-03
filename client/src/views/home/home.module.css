@@ -39,3 +39,9 @@
 justify-self: start;
   align-items: start;
 } */
+
+.loading{
+  color: white;
+  font-size: 60px;
+  font-family: "Offside";
+}

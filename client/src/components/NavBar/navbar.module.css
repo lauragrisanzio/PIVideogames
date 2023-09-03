@@ -16,18 +16,21 @@
   text-align: center;
   font-size: 35px;
   font-weight:bolder;
-  margin-top: 5px;
-  margin-left: 300px;
-   margin-right: 300px;
-  letter-spacing: 7px;
-  word-spacing: 4px;
+  margin-top: 8px;
+  margin-left: 200px;
+   margin-right: 200px;
+  letter-spacing: 2px;
+  /* word-spacing: 4px; */
   border: solid 3px;
+  height: 50px;
+  
 }
 
 .link{
     background-color: rgb(226, 226, 225);
     margin: 4px;
     width: 80px;
+    height: 45px;
    text-align: center;
     padding-top: 9px;
     border: solid 3px;
@@ -36,10 +39,31 @@
     font-weight: bolder;
     text-decoration: none;
     font-family:'Offside', cursive;
-    
+     margin-top: 10px;
 }
 
 .link:hover{
+    /* background-color: whitesmoke; */
+    opacity: 0.8;
+}
+
+.linkdatabase{
+    background-color: rgb(226, 226, 225);
+    margin-top: 10px;
+    width: 200px;
+    height: 45px;
+   text-align: center;
+    padding-top: 9px;
+    border: solid 3px;
+    color: black;
+    font-size: medium;
+    font-weight: bolder;
+    text-decoration: none;
+    font-family:'Offside', cursive;
+    
+}
+
+.linkdatabase:hover{
     /* background-color: whitesmoke; */
     opacity: 0.8;
 }

@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 
-import {getVideogames, postVideogame, getGenres, getPlatforms} from "../../redux/actions";
+import { getVideogames, postVideogame, getGenres, getPlatforms } from "../../redux/actions";
+import Loading from "../../components/Loading/loading"
 
 import { validator } from "./validator";
-
 import styles from "./form.module.css";
 
 
@@ -14,7 +14,7 @@ const Form = () => {
   // const allVideogames = useSelector((state) => state.allVideogames);
   const genres = useSelector((state) => state.genres);
   const platforms = useSelector((state) => state.platforms);
-  console.log(platforms);
+  // console.log(platforms);
   
   const dispatch = useDispatch();
   const history = useNavigate();
@@ -81,12 +81,7 @@ const Form = () => {
       return alert("You must complete all fields");
    
     dispatch(postVideogame(values))
-      // .then(() => dispatch(getActivities()))
-      //         .then(() => dispatch(getCountries()))
-      // .then(() => history("/home"));
-    console.log(values);
-    alert("Activity Created");
-    setValues({
+     setValues({
       name: "",
       background_image: "",
       description: "",
@@ -96,9 +91,11 @@ const Form = () => {
       rating_top: 0,
       GenreId: [],
       genreName:[]
-    });
+     });
+   
+    // history("/home") //nuevo, ver si funciona!!!!! no me convence como queda
   }
-  console.log(values);
+  // console.log(values);
   return (
     <div className={styles.container}>
       <div className={styles.form}>
@@ -107,140 +104,159 @@ const Form = () => {
           <h2>Animate a crear un nuevo videojuego!!</h2>
         </div>
         <div className={styles.options}>
-          <form onSubmit={(e) => handleSubmit(e)}>
-            <div className="form">
-              <label htmlFor="name">Name:</label>
-              <input
-                placeholder="Write a videogames´s game"
-                type="text"
-                value={values.name.toUpperCase()}
-                name="name"
-                onChange={(e) => handleChange(e)}
-              />
-              {errors.name1 ? <p>{errors.name1}</p> : <p>{errors.name2}</p>}
-            </div>
-            <br />
-            <div>
-              <label htmlFor="background_image"> Image:</label>
-              <input
-                type="text"
-                value={values.background_image}
-                name="background_image"
-                onChange={(e) => handleChange(e)}
-              />
-              {errors.background_image1 ? (
-                <p>{errors.background_image1}</p>
-              ) : (
-                <p>{errors.background_image2}</p>
-              )}
-            </div>
-            <br />
-            <div>
-              <label htmlFor="description"> Description:</label>
+          {platforms.length ? (
+            <form onSubmit={(e) => handleSubmit(e)}>
+              <div className="form">
+                <label htmlFor="name">Name:</label>
+                <input
+                  placeholder="Write a videogames´s game"
+                  type="text"
+                  value={values.name.toUpperCase()}
+                  name="name"
+                  onChange={(e) => handleChange(e)}
+                />
+                {errors.name1 ? (
+                  <span>{errors.name1}</span>
+                ) : (
+                  <span>{errors.name2}</span>
+                )}
+              </div>
               <br />
-              <textarea
-                autoCapitalize="true"
-                type="textarea"
-                rows="6"
-                cols="30"
-                name="description"
-                placeholder="Describe the videogame"
-                value={values.description}
-                onChange={(e) => handleChange(e)}
-              />
-              {errors.description1 ? (
-                <p>{errors.description1}</p>
-              ) : (
-                <p>{errors.description2}</p>
-              )}
-            </div>
-            <br />
-            <div>
-              <label htmlFor="released"> Creation date:</label>
+              <div>
+                <label htmlFor="background_image"> Image:</label>
+                <input
+                  type="text"
+                  value={values.background_image}
+                  name="background_image"
+                  onChange={(e) => handleChange(e)}
+                />
+                {errors.background_image1 ? (
+                  <span>{errors.background_image1}</span>
+                ) : (
+                  <span>{errors.background_image2}</span>
+                )}
+              </div>
               <br />
-              <input
-                type="text"
-                value={values.released}
-                name="released"
-                placeholder="Creation date"
-                onChange={(e) => handleChange(e)}
-              />
-              {errors.released1 ? (
-                <p>{errors.released1}</p>
-              ) : (
-                <p>{errors.released2}</p>
-              )}
-            </div>
-            <br />
+              <div>
+                <label htmlFor="description"> Description:</label>
+                <br />
+                <textarea
+                  autoCapitalize="true"
+                  type="textarea"
+                  rows="6"
+                  cols="30"
+                  name="description"
+                  placeholder="Describe the videogame"
+                  value={values.description}
+                  onChange={(e) => handleChange(e)}
+                />
+                {errors.description1 ? (
+                  <span>{errors.description1}</span>
+                ) : (
+                  <span>{errors.description2}</span>
+                )}
+              </div>
+              <br />
+              <div>
+                <label htmlFor="released"> Creation date:</label>
+                <br />
+                <input
+                  type="text"
+                  value={values.released}
+                  name="released"
+                  placeholder="Creation date"
+                  onChange={(e) => handleChange(e)}
+                />
+                {errors.released1 ? (
+                  <span>{errors.released1}</span>
+                ) : (
+                  <span>{errors.released2}</span>
+                )}
+              </div>
+              <br />
+              <div>
+                <label htmlFor="platforms"> Platforms:</label>
+                <select
+                  // value={values.platforms} //ESTO ES NUEVO VER SI FUNCIONA!!!
+                  name="platforms"
+                  size={1}
+                  onChange={(e) => handleSelectPlatforms(e)}
+                >
+                  <option selected>Platform</option>
+                  {platforms.map((p, i) => (
+                    <option key={i} value={p}>
+                      {p}
+                    </option>
+                  ))}
+                </select>
+                {errors.platforms1 ? (
+                  <span>{errors.platforms1}</span>
+                ) : (
+                  <span>{errors.platforms2}</span>
+                )}
+                <div>{values.platforms}</div>
+              </div>
+              <br />
+              <div>
+                <label htmlFor="rating"> Rating:</label>
+                <input
+                  name="rating"
+                  type="number"
+                  value={values.rating}
+                  onChange={(e) => handleChange(e)}
+                />
+                {errors.rating1 ? (
+                  <span>{errors.rating1}</span>
+                ) : (
+                  <span>{errors.rating2}</span>
+                )}
+              </div>
+              <br />
+              <div>
+                <label htmlFor="rating"> Rating Top:</label>
+                <input
+                  name="rating_top"
+                  type="number"
+                  value={values.rating_top}
+                  onChange={(e) => handleChange(e)}
+                />
+                {errors.rating_top1 ? (
+                  <span>{errors.rating_top1}</span>
+                ) : (
+                  <span>{errors.rating_top2}</span>
+                )}
+              </div>
+              <br />
+              <div className="selectgenres">
+                <label htmlFor="genres" selected>
+                  Select genres:
+                </label>
+                <select
+                  // value={values.GenreId} //ESTO ES NUEVO VER SI FUNCIONA!!!
+                  name="genres"
+                  // size={1}
+                  onChange={(e) => handleSelectGenres(e)}
+                >
+                  <option selected>Genres</option>
+                  {genres.map((g, i) => (
+                    <option key={i} value={g.id}>
+                      {g.id}-{g.name}
+                    </option>
+                  ))}
+                </select>
+                {errors.GenreId1 && <span>{errors.GenreId1}</span>}
+                <div>{values.GenreId}</div>
+              </div>
+              <div>
+                <button type="submit">CREATE ACTIVITY</button>
+              </div>
+            </form>
+          ) : (
             <div>
-              <label htmlFor="platforms"> Platforms:</label>
-              <select
-                // value={values.platforms} //ESTO ES NUEVO VER SI FUNCIONA!!!
-                name="platforms"
-                size={1}
-                onChange={(e) => handleSelectPlatforms(e)}
-              >
-                {platforms.map((p) => (
-                  <option value={p}>{p}</option>
-                ))}
-              </select>
-              {errors.platforms1 ? (
-                <p>{errors.platforms1}</p>
-              ) : (
-                <p>{errors.platforms2}</p>
-              )}
-              <div>{values.platforms}</div>
+              <h3 className={styles.loading}>Loading...</h3>
+              <Loading />
             </div>
-            <br />
-            <div>
-              <label htmlFor="rating"> Rating:</label>
-              <input
-                name="rating"
-                type="number"
-                value={values.rating}
-                onChange={(e) => handleChange(e)}
-              />
-              {errors.rating1 ? (
-                <p>{errors.rating1}</p>
-              ) : (
-                <p>{errors.rating2}</p>
-              )}
-            </div>
-            <br />
-            <div>
-              <label htmlFor="rating"> Rating Top:</label>
-              <input
-                name="rating_top"
-                type="number"
-                value={values.rating_top}
-                onChange={(e) => handleChange(e)}
-              />
-              {errors.rating_top1 ? (
-                <p>{errors.rating_top1}</p>
-              ) : (
-                <p>{errors.rating_top2}</p>
-              )}
-            </div>
-            <br />
-            <div className="selectgenres">
-              <label htmlFor="genres" selected>Select genres:</label>
-              <select
-                // value={values.GenreId} //ESTO ES NUEVO VER SI FUNCIONA!!!
-                name="genres"
-                size={1}
-                onChange={(e) => handleSelectGenres(e)}
-              >
-                {genres.map((g) => (
-                  <option value={g.id && g.name}>{g.name}</option>
-                ))}
-              </select>            
-              {errors.GenreId1 && <p>{errors.GenreId1}</p>}
-              <div>{values.GenreId}</div>
-            </div>
-            <div>
-              <button type="submit">CREATE ACTIVITY</button>
-            </div>
-          </form>
+          )}
         </div>
       </div>
     </div>

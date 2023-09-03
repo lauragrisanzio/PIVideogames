@@ -6,7 +6,7 @@ import {
   useNavigate,
 } from "react-router-dom";
 
-import { Landing, Home, Detail, Form } from "./views";
+import { Landing, Home, Detail, Form, GamesDatabase } from "./views";
 import NavBar from "./components/NavBar/navbar";
 
 // import Activities from "./views/activities/activities";
@@ -25,15 +25,8 @@ function App() {
         <Route path="/home" element={<Home />}></Route>
         <Route path="/home/:id" element={<Detail />}></Route>
         <Route path="/form" element={<Form />}></Route>
-        {/* <Route
-          path="/activity/allActivities"
-          element={<ActivitiesCards />}
-        ></Route>
-        <Route
-          path="/activity/createActivity"
-          element={<CreateActivity />}
-        ></Route> */}
-      </Routes>
+        <Route path="/created" element={<GamesDatabase/>}></Route>
+        </Routes>
     </div>
   );
 }

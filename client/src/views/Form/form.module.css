@@ -51,3 +51,10 @@
 input{
   margin: 1px;
 }
+
+
+.loading{
+  color: red;
+  font-size: 50px;
+  font-family: "Offside";
+}

@@ -3,13 +3,14 @@
 //reducer: nuevo estado a mostrar - se encarga de procesar las acciones
 import {
   GET_VIDEOGAMES, GET_BY_NAME, POST_VIDEOGAME, GET_BY_ID, CLEAR_DETAIL, GET_GENRES,
-  ORDER_BY_AZ, ORDER_BY_RATING, FILTER_GENRES, FILTER_BY_DB, GET_PLATFORMS
+  ORDER_BY_AZ, ORDER_BY_RATING, FILTER_GENRES, FILTER_BY_DB, GET_PLATFORMS, GET_VIDEOGAMES_DB
 } from "./actions";
 
 
 const initialState = {
   allVideogames: [],
   videogames: [], //copia de allVideogames
+  videogamesDb: [],
   detail: [],
   genres: [],
   platforms: [],
@@ -27,16 +28,22 @@ const rootReducer = (state = initialState, action) => {
         videogames: action.payload,
       };
 
+    case GET_VIDEOGAMES_DB:
+      return {
+        ...state,
+        videogamesDb: action.payload,
+      };
+  
     case GET_GENRES:
       return {
         ...state,
-        genres: action.payload, //el action payload va a ser todos los videogames
+        genres: action.payload, 
       };
-    
+
     case GET_PLATFORMS:
       return {
         ...state,
-        platforms: action.payload, //el action payload va a ser todos los videogames
+        platforms: action.payload, 
       };
 
     case GET_BY_NAME:
@@ -92,7 +99,7 @@ const rootReducer = (state = initialState, action) => {
       };
 
     case FILTER_GENRES:
-      const filterGenres = state.allVideogames;
+      // const filterGenres = state.allVideogames;
       const genresFilter =
         action.payload === "All"
           ? state.videogames

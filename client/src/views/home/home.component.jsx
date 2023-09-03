@@ -23,7 +23,8 @@ function Home() {
 
   //componente quiero que estes suscripto a cualquier cambio que ocurra en el estado allVideogames
   const allVideogames = useSelector((state) => state.allVideogames); //se indica al componente de que estado depende, a que estado quiero estar suscripto
-
+  console.log(allVideogames);
+  
   useEffect(() => {
     dispatch(getVideogames()); //1° parametro lo que queremos ejecutar al momento de hacer el dispatch, cuando se monta
     dispatch(getGenres());
@@ -55,9 +56,16 @@ function Home() {
           setCurrentPage={setCurrentPage}
           totalPages={totalPages}
         />
-        <div className={styles.cardList}>
-          <Cards allVideogames={allVideogames} slicePage={slicePage} />
-        </div>
+        {allVideogames.length ?
+          <div className={styles.cardList}>
+            <Cards allVideogames={allVideogames} slicePage={slicePage} />
+          </div>
+          : (
+            <div>
+              <h3 className={styles.loading}>Loading...</h3>
+              <Loading />
+            </div>
+          )}
       </div>
     </div>
   );
