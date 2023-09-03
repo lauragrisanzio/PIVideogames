@@ -3,7 +3,7 @@
 //reducer: nuevo estado a mostrar - se encarga de procesar las acciones
 import {
   GET_VIDEOGAMES, GET_BY_NAME, POST_VIDEOGAME, GET_BY_ID, CLEAR_DETAIL, GET_GENRES,
-  ORDER_BY_AZ, ORDER_BY_RATING, FILTER_GENRES, FILTER_BY_DB
+  ORDER_BY_AZ, ORDER_BY_RATING, FILTER_GENRES, FILTER_BY_DB, GET_PLATFORMS
 } from "./actions";
 
 
@@ -11,7 +11,8 @@ const initialState = {
   allVideogames: [],
   videogames: [], //copia de allVideogames
   detail: [],
-  genres:[]
+  genres: [],
+  platforms: [],
 };
 
 
@@ -30,6 +31,12 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         genres: action.payload, //el action payload va a ser todos los videogames
+      };
+    
+    case GET_PLATFORMS:
+      return {
+        ...state,
+        platforms: action.payload, //el action payload va a ser todos los videogames
       };
 
     case GET_BY_NAME:
@@ -103,10 +110,10 @@ const rootReducer = (state = initialState, action) => {
       const filterVideogames =
         action.payload === "db"
           ? state.videogames.filter((g) => g.id.toString().includes("-"))
-           //     : state.videogames.filter((g) =>  !g.id.toString().includes("-"));
-          : action.payload=== "api" ?
-            state.videogames.filter((g) => !g.id.toString().includes("-"))
-            : [...state.videogames]
+          : //     : state.videogames.filter((g) =>  !g.id.toString().includes("-"));
+          action.payload === "api"
+          ? state.videogames.filter((g) => !g.id.toString().includes("-"))
+          : [...state.videogames];
       // console.log(filterV);
       console.log(filterVideogames);
       return {

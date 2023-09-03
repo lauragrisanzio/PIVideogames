@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 
-import {getVideogames, postVideogame, getGenres} from "../../redux/actions";
+import {getVideogames, postVideogame, getGenres, getPlatforms} from "../../redux/actions";
 
 import { validator } from "./validator";
 
@@ -13,6 +13,8 @@ const Form = () => {
 
   // const allVideogames = useSelector((state) => state.allVideogames);
   const genres = useSelector((state) => state.genres);
+  const platforms = useSelector((state) => state.platforms);
+  console.log(platforms);
   
   const dispatch = useDispatch();
   const history = useNavigate();
@@ -20,6 +22,7 @@ const Form = () => {
   useEffect(() => {
     dispatch(getVideogames());
     dispatch(getGenres());
+    dispatch(getPlatforms());
   }, [dispatch]);
   
   const [values, setValues] = useState({  //proyectorick como inputs pero lo entiendo mas como values
@@ -55,6 +58,16 @@ const Form = () => {
     });
   };
 
+   const handleSelectPlatforms = (event) => {
+     const property = event.target.name;
+     const value = event.target.value.toUpperCase();
+     setErrors(validator({ ...values, [property]: value }));
+     setValues({
+       ...values,
+       platforms: [...values.platforms, event.target.value],
+     });
+   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (
@@ -82,8 +95,10 @@ const Form = () => {
       rating: 0,
       rating_top: 0,
       GenreId: [],
+      genreName:[]
     });
   }
+  console.log(values);
   return (
     <div className={styles.container}>
       <div className={styles.form}>
@@ -159,13 +174,16 @@ const Form = () => {
             <br />
             <div>
               <label htmlFor="platforms"> Platforms:</label>
-              <input //SI ME ALCANZA EL TIEMPO, GENERAR EL MODELO Y TRAERME LAS PLATFORMS DE LA API
+              <select
+                // value={values.platforms} //ESTO ES NUEVO VER SI FUNCIONA!!!
                 name="platforms"
-                placeholder="Platform to play..."
-                type="text"
-                value={values.platforms.join}
-                onChange={(e) => handleChange(e)}
-              />
+                size={1}
+                onChange={(e) => handleSelectPlatforms(e)}
+              >
+                {platforms.map((p) => (
+                  <option value={p}>{p}</option>
+                ))}
+              </select>
               {errors.platforms1 ? (
                 <p>{errors.platforms1}</p>
               ) : (
@@ -205,21 +223,20 @@ const Form = () => {
             </div>
             <br />
             <div className="selectgenres">
-              <label htmlFor="genres">Select genres:</label>
+              <label htmlFor="genres" selected>Select genres:</label>
               <select
-                value={values.GenreId} //ESTO ES NUEVO VER SI FUNCIONA!!!
+                // value={values.GenreId} //ESTO ES NUEVO VER SI FUNCIONA!!!
                 name="genres"
                 size={1}
                 onChange={(e) => handleSelectGenres(e)}
               >
                 {genres.map((g) => (
-                  <option value={g.id}>{g.name}</option>
+                  <option value={g.id && g.name}>{g.name}</option>
                 ))}
-              </select>
-              <div>{values.GenreId.join("-")}</div>
+              </select>            
               {errors.GenreId1 && <p>{errors.GenreId1}</p>}
+              <div>{values.GenreId}</div>
             </div>
-
             <div>
               <button type="submit">CREATE ACTIVITY</button>
             </div>
