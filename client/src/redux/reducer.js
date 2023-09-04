@@ -10,7 +10,7 @@ import {
 const initialState = {
   allVideogames: [],
   videogames: [], //copia de allVideogames
-  videogamesDb: [],
+  database: [],
   detail: [],
   genres: [],
   platforms: [],
@@ -29,9 +29,9 @@ const rootReducer = (state = initialState, action) => {
       };
 
     case GET_VIDEOGAMES_DB:
-      return {
+       return {
         ...state,
-        videogamesDb: action.payload,
+        database: action.payload
       };
   
     case GET_GENRES:

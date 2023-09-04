@@ -6,7 +6,7 @@ import styles from "./card.module.css";
 function Card({ videogame }) {  //viene por props de Cards
 
   const { id, name, background_image, genres } = videogame;
-  console.log(genres);
+  
    
   return (
     <div className={styles.cardContainer}>

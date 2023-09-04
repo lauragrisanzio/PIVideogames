@@ -11,6 +11,7 @@ import styles from "./detail.module.css";
 const Detail = () => {
 
   const detail = useSelector((state) => state.detail);
+  console.log(detail);
   const dispatch = useDispatch();
 // const history = useNavigate()
 
