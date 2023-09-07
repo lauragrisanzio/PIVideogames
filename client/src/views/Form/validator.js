@@ -11,12 +11,12 @@ export const validator = (videogame) => {
  if (!regxp.test(videogame.name)) {
    errors.name2 = "Name field only allows alphanumeric data";
   }
-  if (!videogame.background_image) {
-    errors.background_image1 = "Must be complete field: Image";
-  }
-  if (!allowedExtensionsImage.test(videogame.background_image)) {
-    errors.background_image2 = "Only jpg, jpeg, png, gif extensions are allowed";
-  }
+  // if (!videogame.background_image) {
+  //   errors.background_image1 = "Must be complete field: Image";
+  // }
+  // if (!allowedExtensionsImage.test(videogame.background_image)) {
+  //   errors.background_image2 = "Only jpg, jpeg, png, gif extensions are allowed";
+  // }
    if (!videogame.description) {
      errors.description1 = "Must be complete field: Image";
    }

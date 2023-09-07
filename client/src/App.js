@@ -19,14 +19,15 @@ function App() {
   
   return (
     <div className="App">
-      {pathname !== "/"  && <NavBar/>}
+      {pathname !== "/" && <NavBar />}
       <Routes>
         <Route path="/" element={<Landing />}></Route>
         <Route path="/home" element={<Home />}></Route>
         <Route path="/home/:id" element={<Detail />}></Route>
         <Route path="/form" element={<Form />}></Route>
-        <Route path="/created" element={<GamesDatabase/>}></Route>
-        </Routes>
+        <Route path="/created" element={<GamesDatabase />}></Route>
+        {/* <Route path="/created/:id" element={<GamesDatabase />}></Route> */}
+      </Routes>
     </div>
   );
 }

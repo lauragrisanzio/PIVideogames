@@ -37,7 +37,7 @@ const putVideogameHandler = async (req, res) => {
       rating_top,
        GenreId}
     );
-    return res.status(200).json(updateVideogame);
+    return res.status(200).json({ updated: "ok", videogame: updateVideogame });
   } catch (error) {
     return res.status(400).json({ error: error.message });
   }

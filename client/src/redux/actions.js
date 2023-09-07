@@ -15,6 +15,7 @@ export const FILTER_GENRES = "FILTER_GENRES";
 export const FILTER_BY_DB = "FILTER_BY_DB";
 export const ORDER_BY_AZ = "ORDER_BY_AZ";
 export const ORDER_BY_RATING = "ORDER_BY_RATING";
+export const DELETE_VIDEOGAME = "DELETE_VIDEOGAME"
 
 export const getVideogames =  () => {
        return async (dispatch) => {
@@ -32,7 +33,7 @@ export const getVideogames =  () => {
 export const getVideogamesDB = () => {
   return async (dispatch) => {
     const {data} = await axios("http://localhost:3001/videogame/created");
-    console.log(data);
+    // console.log(data);
      return dispatch({
       type: GET_VIDEOGAMES_DB,
       payload: data, 
@@ -85,6 +86,7 @@ export const getById = (id) => {
     });
   };
 };
+
 export const postVideogame = (data) => {
 //   // console.log(data);
 //   try {
@@ -160,6 +162,16 @@ console.log(order);
   };
 };
 
+export const deleteVideogame = (id) => {
+  return async (dispatch) => {
+     await axios.delete(`http://localhost:3001/videogame/created/${id}`);
+    console.log(id);
+    return dispatch({
+      type: DELETE_VIDEOGAME,
+      payload: id,
+    });
+  };
+};
 // //se solicita la informacion
 // //que queremos hacer con el estado
 // //payload es la data

@@ -33,7 +33,7 @@ const postVideogameHandler = async (req, res) => {
       rating_top,
        GenreId
     });
-    return res.status(200).json(newVideogame);
+    return res.status(200).json({ created: "ok", videogame: newVideogame });
   } catch (error) {
     return res.status(400).json({ error: error.message });
   }

@@ -6,7 +6,7 @@ import styles from "./card.module.css";
 function Card({ videogame }) {  //viene por props de Cards
 
   const { id, name, background_image, genres } = videogame;
-  
+  const defaultImage = "../../../assets/detail/descarga.jpeg";
    
   return (
     <div className={styles.cardContainer}>
@@ -15,7 +15,7 @@ function Card({ videogame }) {  //viene por props de Cards
         {/*se puede hacer accesible la imagen????? VER!!! 
         IMAGEN POR DEFECTO CUANDO ES CREADO POR EL USUARIO*/}
         <div className={styles.cardin}>
-          <img src={background_image} alt="" />
+          <img src={background_image || defaultImage} alt="Imagen del juego" />
           <h2 className={styles.name}>{name}</h2>
           <h5 className={styles.genres}>{genres.join(" - ")}</h5>
         </div>

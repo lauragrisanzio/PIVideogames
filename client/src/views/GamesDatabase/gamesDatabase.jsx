@@ -1,20 +1,28 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
 
-import { getVideogamesDB } from "../../redux/actions";
+import { getVideogamesDB, deleteVideogame } from "../../redux/actions";
 
 import styles from "./gamesDatabase.module.css";
 
 const GamesDatabase = () => {
-
+  const {id} = useParams();
   const database = useSelector((state) => state.database);
-  console.log(database);
-  
+  // console.log(database);
+
   const dispatch = useDispatch();
+
+
+  console.log(id);
 
   useEffect(() => {
     dispatch(getVideogamesDB())
   }, [dispatch])
+
+  const handleOnClick = () => {
+    dispatch(deleteVideogame(id))
+  };
 
   return (
     <div>
@@ -30,7 +38,7 @@ const GamesDatabase = () => {
                 </h3>
                 <h5>{videogame.description}</h5>
                 <button>UPDATE</button>
-              <button>DELETE</button>
+              <button onClick={()=>handleOnClick(id)}>DELETE</button>
               </div>
             );
           })}

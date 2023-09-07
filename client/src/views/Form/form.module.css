@@ -1,60 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Dongle:wght@300&family=Lilita+One&family=Offside&family=Reggae+One&family=Roboto&family=Special+Elite&display=swap');
+
+
+
 .container{
-   display: flex;
+   background-image: url("../../../assets/form/8533c4acb3711fb4db770776275659a4-videojuego-pacman-de-los-80.png");
+    /* background-attachment: fixed; */
+    background-repeat: repeat;
+    background-position: center;
+    background-size: contain;
+    display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    /* background-color: rgba(241, 241, 88, 0.797); */
-    /* background-color: black; */
-    height: 100vh;
+   
     
 }
 
+.title{
+  /* border: 5px solid yellow; */
+  display: flex;
+  flex-direction:column;
+  justify-content: start;
+  height: 100vh;
+  margin-top: 50px;
+
+}
+
+.title1 {
+  margin: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 5px solid black; */
+  width: 500px;
+  height: 150px;
+}
+
+
+.title1 h1{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  width: 20px;
+  color: yellow;
+  font-family: "Lilita One";
+  -webkit-text-stroke: 0.5px grey;
+  font-size: 70px;
+}
+
+.title1 h2{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+ justify-content: center;
+  text-align: center;
+  align-items: center;
+ /* width: 20px; */
+  color: yellow;
+  font-family: "Special Elite";
+  font-size: 60px;
+}
+
 .form{
-     display: block;
-    flex-direction: row;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    background-color: aliceblue;
-    width: 750px;
-    height: 600px;
-    overflow: hidden;
- 
-    /* border-radius: 100px; */
-}
-.options{
-   /* font-size: 20px; */
-    width: 100%;
-     border: 5px solid black;
-   width: 100%; 
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
+  border: solid black;
+  border-radius: 5px;
+  display: flex;
+  flex-direction:column;
+  justify-content: start;
+  align-items: center;
+  height: 80vh;
+  width: 500px;
+  background-color: transparent;
   
-  
+  -webkit-box-shadow: 10px 10px 26px 7px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 26px 7px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 26px 7px rgba(0,0,0,0.75);
+margin-top: 10px;
 }
 
-.tittle{
-    border: 5px solid black;
-  /* font-size: 25px; */
-    width: 100%; 
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-}
-
-input{
-  margin: 1px;
-}
-
-
-.loading{
-  color: red;
-  font-size: 50px;
-  font-family: "Offside";
+.button{
+  margin-top: 30px;
+  border-radius: 10px;
+  color: yellow;
+  background-color: blue;
+  height: 50px;
+  width: 150px;
 }

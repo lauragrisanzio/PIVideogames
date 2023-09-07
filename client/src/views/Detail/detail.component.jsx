@@ -11,11 +11,12 @@ import styles from "./detail.module.css";
 const Detail = () => {
 
   const detail = useSelector((state) => state.detail);
-  console.log(detail);
+  // console.log(detail);
   const dispatch = useDispatch();
 // const history = useNavigate()
 
   const { id } = useParams();
+  console.log(id);
 
   // const [details, setDetails] = useState(true)
 
@@ -27,6 +28,7 @@ const Detail = () => {
     };      
   }, [dispatch,id])
   
+const defaultImage="../../../assets/detail/descarga.jpeg";
   return (
     <div>
       <div className={styles.h1}>
@@ -38,14 +40,17 @@ const Detail = () => {
           <>
             <h1>{detail.name}</h1>
             <br />
-            <img className={styles.img} src={detail.background_image} alt="" />
+            {detail.background_image ?
+              <img className={styles.img} src={detail.background_image} alt="Imagen del juego" />
+            : <img className={styles.img} src={detail.defaultImage} alt="Imagen del juego" />}
             {/* imagen por defecto??*/}
+            
             <p>
               Name: {detail.name} (Id: {detail.id})
             </p>
             <br />
-            <p>Platforms: {detail.platforms}</p>
-           
+            <p>Platforms:{detail.platforms }</p>
+           {/* {detail.platforms.length ===2 ?} */}
             <br />
             <p>
               Description:
@@ -70,7 +75,7 @@ const Detail = () => {
           </>
         ) : (
           <div>
-            <h3>Loading...</h3>
+            {/* <h3>Loading...</h3> */}
             <Loading />
           </div>
         )}

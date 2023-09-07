@@ -5,7 +5,8 @@ const getVideoGByIdHandler = require("../handlers/getVideoGByIdHandler.js")
 const getVideoGCreatedHandler = require("../handlers/getVideoGCreatedHandler")
 const postVideogameHandler = require("../handlers/postVideogameHandler")
 const putVideogameHandler = require("../handlers/putVideogameHandler")
-const getPlatformsHandler = require("../handlers/getPlatformsHandler")
+const getPlatformsHandler = require("../handlers/getPlatformsHandler");
+const deleteVideoGCreatedHandler = require("../handlers/deleteVideGCreatedHandler");
 // const getVideogameByNameHandler = require("../handlers/getVideogamesHandler");
 
 const videogameRouter = Router();
@@ -18,5 +19,9 @@ videogameRouter.get("/created", getVideoGCreatedHandler);
 videogameRouter.get("/:idVideogame", getVideoGByIdHandler);
 videogameRouter.post("/", postVideogameHandler);
 videogameRouter.put("/:id", putVideogameHandler);
+videogameRouter.delete("/created/:idVideogame", deleteVideoGCreatedHandler);
 
 module.exports = videogameRouter;
+//    (req, res) => {
+//     res.send("Ruta para eliminar videogames de la base de datos")
+// }

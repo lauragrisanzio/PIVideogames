@@ -3,7 +3,8 @@
 //reducer: nuevo estado a mostrar - se encarga de procesar las acciones
 import {
   GET_VIDEOGAMES, GET_BY_NAME, POST_VIDEOGAME, GET_BY_ID, CLEAR_DETAIL, GET_GENRES,
-  ORDER_BY_AZ, ORDER_BY_RATING, FILTER_GENRES, FILTER_BY_DB, GET_PLATFORMS, GET_VIDEOGAMES_DB
+  ORDER_BY_AZ, ORDER_BY_RATING, FILTER_GENRES, FILTER_BY_DB, GET_PLATFORMS, GET_VIDEOGAMES_DB,
+  DELETE_VIDEOGAME
 } from "./actions";
 
 
@@ -29,21 +30,21 @@ const rootReducer = (state = initialState, action) => {
       };
 
     case GET_VIDEOGAMES_DB:
-       return {
+      return {
         ...state,
-        database: action.payload
+        database: action.payload,
       };
-  
+
     case GET_GENRES:
       return {
         ...state,
-        genres: action.payload, 
+        genres: action.payload,
       };
 
     case GET_PLATFORMS:
       return {
         ...state,
-        platforms: action.payload, 
+        platforms: action.payload,
       };
 
     case GET_BY_NAME:
@@ -127,6 +128,14 @@ const rootReducer = (state = initialState, action) => {
         ...state,
 
         allVideogames: filterVideogames,
+      };
+
+    case DELETE_VIDEOGAME:
+      return {
+        ...state,
+        allVideogames: action.payload, 
+        videogames: action.payload,
+        database: action.payload
       };
 
     default:

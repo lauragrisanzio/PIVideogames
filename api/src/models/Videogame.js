@@ -8,7 +8,7 @@ module.exports = (sequelize) => {
     {
       id: {
         type: DataTypes.UUID,
-        defaultValue:DataTypes.UUIDV4,//es para que se genere automaticamente v
+        defaultValue: DataTypes.UUIDV4, //es para que se genere automaticamente v
         primaryKey: true,
       },
       name: {
@@ -21,7 +21,8 @@ module.exports = (sequelize) => {
       },
       platforms: {
         // type: DataTypes.STRING,
-        type: DataTypes.ARRAY,
+        // type: DataTypes.ARRAY(DataTypes.STRING),
+        type: DataTypes.ARRAY(DataTypes.ARRAY),
         allowNull: false,
       },
       background_image: {
@@ -39,7 +40,7 @@ module.exports = (sequelize) => {
       rating_top: {
         type: DataTypes.INTEGER,
         allowNull: false,
-      }
+      },
     },
     {
       timestamps: false,
