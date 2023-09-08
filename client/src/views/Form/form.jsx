@@ -107,8 +107,8 @@ const Form = () => {
       </div>
       <div className={styles.options}>
         {platforms.length ? (
-          <form className={styles.form } onSubmit={(e) => handleSubmit(e)}>
-            
+          <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
+            <fieldset>
               <label htmlFor="name">Name:</label>
               <input
                 placeholder="Write a videogames´s game"
@@ -118,140 +118,156 @@ const Form = () => {
                 onChange={(e) => handleChange(e)}
               />
               {errors.name1 ? (
-                <span>{errors.name1}</span>
+                <p className={styles.p}>{errors.name1}</p>
               ) : (
-                <span>{errors.name2}</span>
+                <p className={styles.p}>{errors.name2}</p>
               )}
-            
-            <br />
-            <div>
-              <label htmlFor="background_image"> Image:</label>
-              <input
-                type="text"
-                value={values.background_image}
-                name="background_image"
-                onChange={(e) => handleChange(e)}
-              />
-              {errors.background_image1 ? (
-                <span>{errors.background_image1}</span>
-              ) : (
-                <span>{errors.background_image2}</span>
-              )}
-            </div>
-            <br />
-            <div>
-              <label htmlFor="description"> Description:</label>
+
               <br />
-              <textarea
-                autoCapitalize="true"
-                type="textarea"
-                rows="6"
-                cols="30"
-                name="description"
-                placeholder="Describe the videogame"
-                value={values.description}
-                onChange={(e) => handleChange(e)}
-              />
-              {errors.description1 ? (
-                <span>{errors.description1}</span>
-              ) : (
-                <span>{errors.description2}</span>
-              )}
-            </div>
-            <br />
-            <div>
-              <label htmlFor="released"> Creation date:</label>
+              <div>
+                <label htmlFor="background_image"> Image:</label>
+                <input
+                  type="text"
+                  value={values.background_image}
+                  name="background_image"
+                  onChange={(e) => handleChange(e)}
+                />
+                {errors.background_image1 ? (
+                  <p className={styles.p}>{errors.background_image1}</p>
+                ) : (
+                  <p className={styles.p}>{errors.background_image2}</p>
+                )}
+              </div>
               <br />
-              <input
-                type="text"
-                value={values.released}
-                name="released"
-                placeholder="Creation date"
-                onChange={(e) => handleChange(e)}
-              />
-              {errors.released1 ? (
-                <span>{errors.released1}</span>
-              ) : (
-                <span>{errors.released2}</span>
-              )}
-            </div>
+              <div>
+                <label htmlFor="description"> Description:</label>
+                <br />
+                <textarea
+                  autoCapitalize="true"
+                  type="textarea"
+                  rows="3"
+                  cols="20"
+                  name="description"
+                  placeholder="Describe the videogame"
+                  value={values.description}
+                  onChange={(e) => handleChange(e)}
+                />
+                {errors.description1 ? (
+                  <p className={styles.p}>{errors.description1}</p>
+                ) : (
+                  <p className={styles.p}>{errors.description2}</p>
+                )}
+              </div>
+              <br />
+              <div>
+                <label htmlFor="released"> Creation date:</label>
+                <br />
+                <input
+                  type="text"
+                  value={values.released}
+                  name="released"
+                  placeholder="Creation date"
+                  onChange={(e) => handleChange(e)}
+                />
+                {errors.released1 ? (
+                  <p className={styles.p}>{errors.released1}</p>
+                ) : (
+                  <p className={styles.p}>{errors.released2}</p>
+                )}
+              </div>
+            </fieldset>
             <br />
-            <div>
-              <label htmlFor="platforms"> Platforms:</label>
-              <select
-                // value={values.platforms} //ESTO ES NUEVO VER SI FUNCIONA!!!
-                name="platforms"
-                size={1}
-                onChange={(e) => handleSelectPlatforms(e)}
-              >
-                <option selected>Platform</option>
-                {platforms.map((p, i) => (
-                  <option key={i} value={p}>
-                    {p}
-                  </option>
-                ))}
-              </select>
-              {errors.platforms1 ? (
-                <span>{errors.platforms1}</span>
-              ) : (
-                <span>{errors.platforms2}</span>
-              )}
-              <div>{values.platforms}</div>
-            </div>
-            <br />
-            <div>
-              <label htmlFor="rating"> Rating:</label>
-              <input
-                name="rating"
-                type="number"
-                value={values.rating}
-                onChange={(e) => handleChange(e)}
-              />
-              {errors.rating1 ? (
-                <span>{errors.rating1}</span>
-              ) : (
-                <span>{errors.rating2}</span>
-              )}
-            </div>
-            <br />
-            <div>
-              <label htmlFor="rating"> Rating Top:</label>
-              <input
-                name="rating_top"
-                type="number"
-                value={values.rating_top}
-                onChange={(e) => handleChange(e)}
-              />
-              {errors.rating_top1 ? (
-                <span>{errors.rating_top1}</span>
-              ) : (
-                <span>{errors.rating_top2}</span>
-              )}
-            </div>
-            <br />
-            <div className="selectgenres">
-              <label htmlFor="genres" selected>
-                Select genres:
-              </label>
-              <select
-                // value={values.GenreId} //ESTO ES NUEVO VER SI FUNCIONA!!!
-                name="genres"
-                // size={1}
-                onChange={(e) => handleSelectGenres(e)}
-              >
-                <option selected>Genres</option>
-                {genres.map((g, i) => (
-                  <option key={i} value={g.id}>
-                    {g.id}-{g.name}
-                  </option>
-                ))}
-              </select>
-              {errors.GenreId1 && <span>{errors.GenreId1}</span>}
-              <div>{values.GenreId}</div>
-            </div>
-      <div>
-              <button className={styles.button }type="submit">CREATE ACTIVITY</button>
-      </div>
+            <fieldset>
+              <div className={styles.select}>
+                <label htmlFor="platforms"> Platforms:</label>
+                <select
+                  // value={values.platforms} //ESTO ES NUEVO VER SI FUNCIONA!!!
+                  name="platforms"
+                  size={1}
+                  onChange={(e) => handleSelectPlatforms(e)}
+                >
+                  {/* <option selected>Platform</option> */}
+                  {platforms.map((p, i) => (
+                    <option key={i} value={p}>
+                      {p}
+                    </option>
+                  ))}
+                </select>
+                {errors.platforms1 ? (
+                  <p className={styles.p}>{errors.platforms1}</p>
+                ) : (
+                  <p className={styles.p}>{errors.platforms2}</p>
+                )}
+                <p>Platforms:</p>
+                <div className={styles.selectionp}>
+                  {values.platforms.join(" - ")}
+                </div>
+                
+              </div>
+              <br />
+              <div>
+                <label htmlFor="rating"> Rating:</label>
+                <input
+                  name="rating"
+                  type="number"
+                  value={values.rating}
+                  onChange={(e) => handleChange(e)}
+                />
+                {errors.rating1 ? (
+                  <p className={styles.p}>{errors.rating1}</p>
+                ) : (
+                  <p className={styles.p}>{errors.rating2}</p>
+                )}
+              </div>
+              <br />
+              <div>
+                <label htmlFor="rating"> Rating Top:</label>
+                <input
+                  name="rating_top"
+                  type="number"
+                  value={values.rating_top}
+                  onChange={(e) => handleChange(e)}
+                />
+                {errors.rating_top1 ? (
+                  <p className={styles.p}>{errors.rating_top1}</p>
+                ) : (
+                  <p className={styles.p}>{errors.rating_top2}</p>
+                )}
+              </div>
+              <br />
+              <div className={styles.select}>
+                <label htmlFor="genres" selected>
+                  Select genres:
+                </label>
+                <select
+                  // value={values.GenreId} //ESTO ES NUEVO VER SI FUNCIONA!!!
+                  name="genres"
+                  // size={1}
+                  onChange={(e) => handleSelectGenres(e)}
+                >
+                  
+                  {genres.map((g, i) => (
+                    <option key={i} value={g.id}>
+                      {g.id}-{g.name}
+                    </option>
+                  ))}
+                </select>
+                {errors.GenreId1 ? (
+                  <p className={styles.p}>{errors.GenreId1}</p>
+                ) : (
+                  <p className={styles.p}>{errors.GenreId2}</p>
+                )}
+                <p>Code genre:</p>
+                <div className={styles.selection}>
+                  {values.GenreId.join(" - ")}
+                </div>
+              </div>
+            </fieldset>
+        <div>
+          <button className={styles.button} type="submit">
+            CREATE VIDEOGAME
+          </button>
+        </div>
           </form>
         ) : (
           <div>

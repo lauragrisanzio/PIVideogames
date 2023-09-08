@@ -14,9 +14,9 @@ export const validator = (videogame) => {
   // if (!videogame.background_image) {
   //   errors.background_image1 = "Must be complete field: Image";
   // }
-  // if (!allowedExtensionsImage.test(videogame.background_image)) {
-  //   errors.background_image2 = "Only jpg, jpeg, png, gif extensions are allowed";
-  // }
+  if (!allowedExtensionsImage.test(videogame.background_image)) {
+    errors.background_image2 = "Only jpg, jpeg, png, gif extensions are allowed";
+  }
    if (!videogame.description) {
      errors.description1 = "Must be complete field: Image";
    }
@@ -46,6 +46,9 @@ if (!videogame.rating_top || videogame.rating_top < 1 || videogame._top > 5) {
   }
   if (videogame.GenreId.length < 1) {
   errors.GenreId1 = "Must select a minimun two genres"
-}
+  }
+  // if (videogame.GenreId === videogame.GenreId) {
+  //   errors.GenreId2=("Genre is alredy select");
+  // }
   return errors;
 };
