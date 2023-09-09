@@ -133,9 +133,9 @@ const rootReducer = (state = initialState, action) => {
     case DELETE_VIDEOGAME:
       return {
         ...state,
-        allVideogames: action.payload, 
-        videogames: action.payload,
-        database: action.payload
+        // allVideogames: action.payload, 
+        // videogames: action.payload,
+        allVideogames: state.videogames.filter((v) => v.id !== action.payload)
       };
 
     default:

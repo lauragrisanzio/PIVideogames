@@ -66,7 +66,23 @@ const Form = () => {
        ...values,
        platforms: [...values.platforms, event.target.value],
      });
-   };
+  };
+
+  const handleDeletePlatforms = (e) => {
+    e.preventDefault();
+    setValues({
+      ...values,
+      platforms: values.platforms.filter((platform) => platform !== e.target.value),
+    });
+  };
+  
+  const handleDeleteGenre = (e) => {
+    e.preventDefault();
+    setValues({
+      ...values,
+      GenreId: values.GenreId.filter((genre) => genre !== e.target.value),
+    });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -90,7 +106,7 @@ const Form = () => {
       rating: 0,
       rating_top: 0,
       GenreId: [],
-      genreName:[]
+      // genreName:[]
      });
    
     // history("/home") //nuevo, ver si funciona!!!!! no me convence como queda
@@ -199,10 +215,24 @@ const Form = () => {
                   <p className={styles.p}>{errors.platforms2}</p>
                 )}
                 <p>Platforms:</p>
-                <div className={styles.selectionp}>
-                  {values.platforms.join(" - ")}
+                <div>
+                  {values.platforms?.map((platform, i) => {
+                    return (
+                      <span key={i}>
+                        {platform}
+                        <button
+                          value={platform}
+                          onClick={(e) => handleDeletePlatforms(e)}
+                        >
+                          X
+                        </button>
+                      </span>
+                    );
+                  })}
                 </div>
-                
+                {/* <div className={styles.selectionp}>
+                  {values.platforms.join(" - ")}
+                </div> */}
               </div>
               <br />
               <div>
@@ -245,7 +275,6 @@ const Form = () => {
                   // size={1}
                   onChange={(e) => handleSelectGenres(e)}
                 >
-                  
                   {genres.map((g, i) => (
                     <option key={i} value={g.id}>
                       {g.id}-{g.name}
@@ -258,16 +287,31 @@ const Form = () => {
                   <p className={styles.p}>{errors.GenreId2}</p>
                 )}
                 <p>Code genre:</p>
-                <div className={styles.selection}>
-                  {values.GenreId.join(" - ")}
+                <div>
+                  {values.GenreId?.map((genre, index) => {
+                    return (
+                      <span key={index}>
+                        {genre}
+                        <button
+                          value={genre}
+                          onClick={(e) => handleDeleteGenre(e)}
+                        >
+                          X
+                        </button>
+                      </span>
+                    );
+                  })}
                 </div>
+                {/* <div className={styles.selection}>
+                  {values.GenreId.join(" - ")}
+                </div> */}
               </div>
             </fieldset>
-        <div>
-          <button className={styles.button} type="submit">
-            CREATE VIDEOGAME
-          </button>
-        </div>
+            <div>
+              <button className={styles.button} type="submit">
+                CREATE
+              </button>
+            </div>
           </form>
         ) : (
           <div>

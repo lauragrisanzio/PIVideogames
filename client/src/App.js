@@ -6,7 +6,14 @@ import {
   useNavigate,
 } from "react-router-dom";
 
-import { Landing, Home, Detail, Form, GamesDatabase } from "./views";
+import {
+  Landing,
+  Home,
+  Detail,
+  Form,
+  GamesDatabase,
+  GamesdbDelete,
+} from "./views";
 import NavBar from "./components/NavBar/navbar";
 
 // import Activities from "./views/activities/activities";
@@ -26,7 +33,7 @@ function App() {
         <Route path="/home/:id" element={<Detail />}></Route>
         <Route path="/form" element={<Form />}></Route>
         <Route path="/created" element={<GamesDatabase />}></Route>
-        {/* <Route path="/created/:id" element={<GamesDatabase />}></Route> */}
+        <Route path="/created/:id" element={<GamesdbDelete />}></Route>
       </Routes>
     </div>
   );

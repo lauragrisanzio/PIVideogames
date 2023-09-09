@@ -3,5 +3,6 @@ import Landing from "./Landing/landing.component";
 import Detail from "./Detail/detail.component";
 import Form from "./Form/form";
 import GamesDatabase from "./GamesDatabase/gamesDatabase";
+import GamesdbDelete from "./GamesDatabase/gamesdbDelete";
 
-export { Home, Landing, Detail, Form, GamesDatabase };
+export { Home, Landing, Detail, Form, GamesDatabase, GamesdbDelete };

@@ -40,37 +40,79 @@ const defaultImage="../../../assets/detail/descarga.jpeg";
           <>
             <h1>{detail.name}</h1>
             <br />
-            {detail.background_image ?
-              <img className={styles.img} src={detail.background_image} alt="Imagen del juego" />
-            : <img className={styles.img} src={detail.defaultImage} alt="Imagen del juego" />}
+            {detail.background_image ? (
+              <img
+                className={styles.img}
+                src={detail.background_image}
+                alt="Imagen del juego"
+              />
+            ) : (
+              <img
+                className={styles.img}
+                src={detail.defaultImage}
+                alt="Imagen del juego"
+              />
+            )}
             {/* imagen por defecto??*/}
-            
+
             <p>
-              Name: {detail.name} (Id: {detail.id})
+              <h3>
+                <u>Name:</u>
+              </h3>
+              <p></p>
+              {detail.name} (Id: {detail.id})
             </p>
             <br />
-            <p>Platforms:{detail.platforms }</p>
-           {/* {detail.platforms.length ===2 ?} */}
+            <p>
+              <h3>
+                <u>Platforms:</u>
+              </h3>
+              <p></p>
+              {detail.platforms}
+            </p>
+            {/* {detail.platforms.length ===2 ?} */}
             <br />
             <p>
-              Description:
+              <h3>
+                <u>Description:</u>
+              </h3>
+              <p></p>
               {detail.description
                 .split("<p>")
                 .join("")
                 .split("<br />")
                 .join("")
-                .split("</p>").join("")}
+                .split("</p>")
+                .join("")}
             </p>
             <br />
-            <p>Date create at: {detail.released}</p>
-            <br />
-            <p>Rating: {detail.rating} </p>
-            <br />
-            <p>Rating Top: {detail.rating_top}</p>
+            <p>
+              <h3>
+                <u>Date create at:</u>
+              </h3>{" "}
+              {detail.released}
+            </p>
             <br />
             <p>
-              Genres:
-              {detail.genres?.map((g) => (g.name ? g.name : g)).join(", ")}
+              <h3>
+                <u>Rating:</u>
+              </h3>{" "}
+              {detail.rating}
+            </p>
+            <br />
+            <p>
+              <h3>
+                <u>Rating Top:</u>
+              </h3>{" "}
+              {detail.rating_top}
+            </p>
+            <br />
+            <p>
+              <h3>
+                <u>Genres:</u>
+              </h3>
+
+              {detail.genres?.map((g) => (g.name ? g.name : g)).join(",  ")}
             </p>
           </>
         ) : (

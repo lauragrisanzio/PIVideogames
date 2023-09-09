@@ -23,7 +23,7 @@
   align-items: center;
   overflow: hidden;
   background-color: blue;
-  background-image: url(../../../assets//home/PACMAN1.jpg);
+  background-image: url("../../../assets/home/PACMAN1.jpg");
 }
 
 .cardList{

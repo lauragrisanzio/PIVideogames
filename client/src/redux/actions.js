@@ -163,12 +163,13 @@ console.log(order);
 };
 
 export const deleteVideogame = (id) => {
+  console.log(id);
   return async (dispatch) => {
-     await axios.delete(`http://localhost:3001/videogame/created/${id}`);
-    console.log(id);
+     const response = await axios.delete(`http://localhost:3001/videogame/created/${id}`);
+    console.log(response);
     return dispatch({
       type: DELETE_VIDEOGAME,
-      payload: id,
+      payload: response.data,
     });
   };
 };

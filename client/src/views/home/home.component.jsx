@@ -50,7 +50,7 @@ function Home() {
       </div>
         {/* <h1 className={styles.titleHome}>VIDEOGAME´S WORLD</h1> */}
         
-  <SearchBar />
+         <SearchBar />
         <Paginate
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
