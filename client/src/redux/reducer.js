@@ -48,11 +48,21 @@ const rootReducer = (state = initialState, action) => {
       };
 
     case GET_BY_NAME:
+      if (action.payload.length === 0) {
+        alert("Cannot found videogame. Try again!");
+        return {
+          ...state,
+          allVideogames: state.videogames
+        }
+      }
+        
+      else { 
       return {
         ...state,
-        allVideogames: action.payload, //el action payload va a ser todos los videogames
+        allVideogames: action.payload, //el action payload va a ser todos los videogames con ese nombre
         videogames: action.payload,
       };
+  }
 
     case GET_BY_ID:
       return {

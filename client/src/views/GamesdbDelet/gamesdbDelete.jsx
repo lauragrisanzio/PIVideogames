@@ -16,29 +16,31 @@ const GamesdbDelete = () => {
 
     const id = useParams();
     const id1 = Object.values(id).toString()
-    console.log(id1);
+    // console.log(id1);
 
     
   const handleOnClick = () => {
       dispatch(deleteVideogame(id1));
       back("/created")
-      alert("Videogame was removed ")
+      alert("Videogame was removed")
     
-    };
+  };
+  
     useEffect(() => {
           dispatch(getVideogamesDB());
     })
     
     return (
       <div className={styles.container}>
-            Sure Do yo want delete this videogame??
-            
-        <button onClick={handleOnClick} className={styles.buttonYes}>
-          YES
-        </button>
-        <Link to={"/created"}>
-          <button className={styles.buttonNo}>NO</button>
-        </Link>
+        <h1>Sure Do you want delete this videogame?</h1>
+        <div className={styles.buttons}>
+          <button onClick={handleOnClick} className={styles.buttonYes}>
+            YES
+          </button>
+          <Link to={"/created"}>
+            <button className={styles.buttonNo}>NO</button>
+          </Link>
+        </div>
       </div>
     );
 }

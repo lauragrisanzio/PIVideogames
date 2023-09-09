@@ -66,12 +66,15 @@ export const getByName = (name) => {
     try {
       const response = await axios(`http://localhost:3001/videogame?name=${name}`);
       // console.log(response);
+      // if(!response.data) alert("No hay videojuegos con ese nombre, intente nuevamente");
     return dispatch({
       type: GET_BY_NAME,
       payload: response.data,
     });
+      
     } catch (error) {
-      alert("No hay videojuegos con ese nombre, intente nuevamente")
+      
+      alert("error:" + error.data)
     }
   };
 };

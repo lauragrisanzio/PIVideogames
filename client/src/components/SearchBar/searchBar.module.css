@@ -12,14 +12,14 @@
 }
 
 .searchBox {
-  width: 30%;
+  width: 25%;
   /* border: solid white 5px; */
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   margin-bottom: 25px;
   margin-top: -45px;
-  margin-right: 10px;
+  margin-right: 50px;
 }
 
 .searchBox ::placeholder{
@@ -31,14 +31,15 @@ i{
   font-style: initial;
 }
 .searchTerm{
-  width: 100%;
-  border:  solid 3px rgb(244, 244, 114);
+  /* width: 100%; */
+  border:  solid 3px rgb(253, 108, 64);
   padding: 5px;
   height: 45px;
   /* border-radius: 5px 5px 5px 5px; */
   outline: none;
   color: #9DBFAF;
   /* cursor:context-menu; */
+  margin-top: 2px;
 }
 
 .searchTerm:focus{
@@ -46,15 +47,15 @@ i{
 }
 
 .searchButton{
-  width: 130px;
+  width: 125px;
   height: 45px;
   border: 1px solid;
-  background: rgb(244, 244, 114);
+  background: rgb(253, 108, 64);
   text-align: center;
   color: black;
   border-radius: 5px 5px 5px 5px;
   cursor: pointer;
-  font-size: 35px;
+  font-size: 30px;
   font-weight: bolder;
   /* margin: 5px; */
   /* padding-bottom: 25px; */

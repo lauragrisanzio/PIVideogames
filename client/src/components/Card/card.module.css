@@ -1,7 +1,7 @@
 .cardContainer {
  /* border: solid 2px #21f3d0 ; */
- border: solid 2px black ;
- background-color: blue;
+ border: solid 4px black ;
+ background-color: rgb(171, 16, 16);
  position: relative;
 width: 300px;
 height: 330px;
@@ -60,8 +60,9 @@ width: auto;
    align-items: center;
    text-align: center;
    font-weight: bolder;
-   background-color: blue;
-   color: #21f3d0;
+   background-color: rgb(171, 16, 16);
+   /* color: #21f3d0; */
+   color: black;
    position: relative;
 
    & img{

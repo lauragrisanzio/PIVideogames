@@ -85,7 +85,8 @@ overflow: hidden;
     border: none;
 } 
 .delete:hover{
-    border: solid red 1px;
+    border: solid black 1px;
+    background-color: red;
 }
 /* .button{
     display: flex;

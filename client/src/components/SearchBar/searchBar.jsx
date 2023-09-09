@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch} from "react-redux"
 import { useState } from "react";
 import { getByName, getVideogames } from "../../redux/actions"
 
@@ -19,8 +19,7 @@ function SearchBar() {
 
      const handleSubmit = (e) => {
        e.preventDefault(); //para que la pagina no se actualice
-       dispatch(getByName(searchString));
-      //  dispatch(getVideogames())
+         dispatch(getByName(searchString));  
      };
 
   return (
@@ -40,9 +39,7 @@ function SearchBar() {
         >
           <i>SEARCH</i>
         </button>
-        {/* <Link to={"/activity"}>
-          <button className={styles.buttonActivities}>Activities</button>
-        </Link> */}
+       
       </div>
     </div>
   );

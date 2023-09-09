@@ -90,7 +90,7 @@ const Header = () => {
               <option value="db"> Created </option>
               <option value="api"> Not created </option>
             </select>
-            <button className={styles.reset } onClick={handleReset}>RESET FILTER</button>
+            <button className={styles.reset} onClick={handleReset}>RESET FILTER</button>
           </div>
         </div>
       </div>

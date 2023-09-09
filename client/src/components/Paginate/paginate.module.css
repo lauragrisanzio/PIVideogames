@@ -13,7 +13,7 @@
     height: 45px;
     width: 95px;
     cursor: pointer;
-    background-color: rgb(244, 244, 114);
+    background-color: rgb(253, 108, 64);
     border-radius: 10px;
     font-family: "Dongle";
     font-size: 30px;
@@ -27,7 +27,7 @@
     height: 45px;
     width: 95px;
     cursor: pointer;
-     background-color: rgb(244, 244, 114);
+     background-color: rgb(253, 108, 64);;
      border-radius: 10px;
       font-family: "Dongle";
     font-size: 30px;
@@ -39,7 +39,7 @@
     margin: 5px;
     padding-top: 4px;
     color: black;
-    background-color: yellow;
+    background-color: orangered;
     height: 45px;
     width: 50px ;
     font-family: "Dongle";
@@ -58,7 +58,7 @@
     align-items: center;
     text-align: center;
     color: black;
-    background-color: yellow;
+    background-color: orangered;
     width: 58px;
     height: 45px;
     font-family: "Dongle";

@@ -12,10 +12,13 @@ try {
     return res.status(200).json(getAll);
 
 } catch (error) {
-    // return res.status(400).json({ error: "No se encuentran los videjuegos solicitados" });
+    if (!getVideogameByName(name)) {
+        alert("No se encuentran los videjuegos solicitados");
+    } 
+    
       return res
         .status(400)
-        .json({ error:error.message }); //en ingles
+        .json({ error: error.message }); //en ingles
 }
 };
 
