@@ -109,7 +109,7 @@ const Form = () => {
       // genreName:[]
      });
    
-    // history("/home") //nuevo, ver si funciona!!!!! no me convence como queda
+  history("/created") //nuevo, ver si funciona!!!!! no me convence como queda
   }
   // console.log(values);
   return (
