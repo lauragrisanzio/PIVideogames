@@ -108,7 +108,11 @@ const Form = () => {
       GenreId: [],
       // genreName:[]
      });
+<<<<<<< HEAD
   alert("Congratulations, Videogame has been created!! 👏🏼👏🏼");
+=======
+   
+>>>>>>> fdde433481f8b7c203276abcbfe1b25895145e8f
   history("/created") //nuevo, ver si funciona!!!!! no me convence como queda
   }
   // console.log(values);
