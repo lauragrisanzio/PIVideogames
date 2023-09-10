@@ -113,11 +113,10 @@ export const postVideogame = (data) => {
          .then((response) => response.data)
          .then((response) => {
            dispatch({ type: POST_VIDEOGAME, payload: response });
-<<<<<<< HEAD
+
           //  alert("Congratulations, Videogame has been created!! 👏🏼👏🏼");
-=======
-           alert("Congratulations, Videogame has been created!! 👏🏼👏🏼");
->>>>>>> fdde433481f8b7c203276abcbfe1b25895145e8f
+          //  alert("Congratulations, Videogame has been created!! 👏🏼👏🏼");
+
            return true;
          })
          .catch((error) => {
