@@ -170,6 +170,11 @@ cursor: pointer;
   word-wrap: break-word;
 }
 
+.button:hover{
+  opacity: 0.8;
+  color:blue;
+}
+
 .p {
   margin-top: -2px;
   margin-left: 10px;

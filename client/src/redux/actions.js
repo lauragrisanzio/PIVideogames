@@ -113,7 +113,7 @@ export const postVideogame = (data) => {
          .then((response) => response.data)
          .then((response) => {
            dispatch({ type: POST_VIDEOGAME, payload: response });
-           alert("Videogame guardado en database");
+          //  alert("Congratulations, Videogame has been created!! 👏🏼👏🏼");
            return true;
          })
          .catch((error) => {

@@ -25,7 +25,7 @@ function SearchBar() {
   return (
     <div className={styles.wrap}>
       <div className={styles.searchBox}>
-        <form />
+       
         <input
           className={styles.searchTerm}
           placeholder="Videogame to play..."
@@ -35,8 +35,7 @@ function SearchBar() {
         <button
           className={styles.searchButton}
           type="submit"
-          onClick={handleSubmit}
-        >
+          onClick={handleSubmit}>
           <i>SEARCH</i>
         </button>
        

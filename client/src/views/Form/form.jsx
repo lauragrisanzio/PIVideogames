@@ -99,7 +99,7 @@ const Form = () => {
     dispatch(postVideogame(values))
      setValues({
       name: "",
-      background_image: "",
+      background_image:"",
       description: "",
       platforms: [],
       released: "",
@@ -108,8 +108,8 @@ const Form = () => {
       GenreId: [],
       // genreName:[]
      });
-   
-    // history("/home") //nuevo, ver si funciona!!!!! no me convence como queda
+  alert("Congratulations, Videogame has been created!! 👏🏼👏🏼");
+  history("/created") //nuevo, ver si funciona!!!!! no me convence como queda
   }
   // console.log(values);
   return (

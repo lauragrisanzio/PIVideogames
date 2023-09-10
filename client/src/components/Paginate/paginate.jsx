@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "./paginate.module.css"
+import SearchBar from "../SearchBar/searchBar";
 
 const Paginate = ({ currentPage, setCurrentPage, totalPages }) => {
 
@@ -16,8 +17,9 @@ const Paginate = ({ currentPage, setCurrentPage, totalPages }) => {
     setCurrentPage(currentPage - 1);
   };
 
-    return (
-      <div className={styles.container}>
+  return (
+    <div className={styles.container}>
+      
         <button
           disabled={input === 1}
           className={styles.previousPag}
@@ -48,6 +50,7 @@ const Paginate = ({ currentPage, setCurrentPage, totalPages }) => {
         >
           NEXT
         </button>
+     
       </div>
     );
 }

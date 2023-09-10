@@ -47,12 +47,12 @@ function Home() {
     <div className={styles.home}>
       <div>
       <div className={styles.header}>
-          <Header />
+          
         
       </div>
         {/* <h1 className={styles.titleHome}>VIDEOGAME´S WORLD</h1> */}
-        
-         <SearchBar />
+        <SearchBar />
+        <Header />
         <Paginate
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
@@ -64,7 +64,7 @@ function Home() {
             <Cards allVideogames={allVideogames} slicePage={slicePage} />
           </div>
           : (
-            <div>
+            <div className={styles.load}>
               <h3 className={styles.loading}>Loading...</h3>
               <Loading />
             </div>

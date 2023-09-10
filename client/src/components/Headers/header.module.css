@@ -1,12 +1,12 @@
-/* .container{
+.container{
    display: flex;
    flex-direction:row; 
    align-items: center;
-   justify-content: start;
-   margin-bottom: 100px;
-     border: 5px solid yellow;
-    width: 50%;
-} */
+   justify-content: center;
+   /* margin-bottom: 100px; */
+     /* border: 5px solid yellow; */
+    width: 60%;
+}
 
 .containerFilters{
     /* border: solid 6px white; */
@@ -24,11 +24,11 @@
 }
 
 .reset{
-    display: flex;
-    flex-direction: row;
+    /* display: flex;
+    flex-direction: row; */
     /* align-items: center; */
-    justify-content:center;
-     width: 120px;
+    /* justify-content:center; */
+     width: 260px;
   height: 45px;
   /* text-align: center; */
   border: 1px solid;
@@ -41,6 +41,9 @@
   font-family: "Dongle";
 }
 
+.reset:hover{
+  opacity: 0.8;
+}
 /* option{
 border-radius: 5px;
 } */
