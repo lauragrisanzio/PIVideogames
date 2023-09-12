@@ -31,12 +31,13 @@ function Home() {
     // return(()=>{}) //=> en esta callback se ejecuta una fx al momento de desmontar
   }, [dispatch]); //2° parametro una array de dependecia
 
-
+  const handleAll = () => {
+  dispatch(getVideogames())
+}
 
   //PAGINADO!!!!:
   const [currentPage, setCurrentPage] = useState(1); //current page= pagina actual
-  const [perPage, setPerPage] = useState(15)
-  //const videogamesPerPage = 15;//lo piuse como estado
+  const perPage = 15;
   const totalVideogames = allVideogames.length;
   const totalPages = Math.ceil(totalVideogames / perPage);  //cantidad de paginas que va a tener la SPA
   const numberStart = (currentPage - 1) * perPage;
@@ -52,7 +53,8 @@ function Home() {
       </div>
         {/* <h1 className={styles.titleHome}>VIDEOGAME´S WORLD</h1> */}
         <SearchBar />
-        <Header />
+        <button className={styles.button } onClick={handleAll}>ALL VIDEOGAMES</button>
+        <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
         <Paginate
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
@@ -65,7 +67,7 @@ function Home() {
           </div>
           : (
             <div className={styles.load}>
-              <h3 className={styles.loading}>Loading...</h3>
+              {/* <h3 className={styles.loading}>Loading...</h3> */}
               <Loading />
             </div>
           )}

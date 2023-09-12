@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./paginate.module.css"
-import SearchBar from "../SearchBar/searchBar";
+
 
 const Paginate = ({ currentPage, setCurrentPage, totalPages }) => {
 

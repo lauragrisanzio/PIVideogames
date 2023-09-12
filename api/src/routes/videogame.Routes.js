@@ -18,8 +18,8 @@ videogameRouter.get("/created", getVideoGCreatedHandler);
 //la ruta es la misma igual que el mismo handler...
 videogameRouter.get("/:idVideogame", getVideoGByIdHandler);
 videogameRouter.post("/", postVideogameHandler);
-videogameRouter.put("/:id", putVideogameHandler);
-videogameRouter.delete("/created/:idVideogame", deleteVideoGCreatedHandler);
+videogameRouter.put("/created/update/:idVideogame", putVideogameHandler);
+videogameRouter.delete("/created/delete/:idVideogame", deleteVideoGCreatedHandler);
 
 module.exports = videogameRouter;
 //    (req, res) => {

@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Dongle:wght@300&family=Lilita+One&family=Offside&family=Reggae+One&family=Roboto&family=Special+Elite&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Dongle:wght@300&family=Lilita+One&family=Offside&family=Phudu:wght@600&family=Reggae+One&family=Roboto&family=Special+Elite&display=swap');
 
 
 .container{
@@ -195,10 +194,4 @@ cursor: pointer;
   background-color: grey;
   width: 100%;
   font-size: 15px;
-}
-
-.close{
-  cursor: pointer;
-  width: 20px;
-  margin:5px;
 }

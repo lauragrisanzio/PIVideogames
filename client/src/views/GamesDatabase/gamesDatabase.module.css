@@ -4,8 +4,9 @@
 }
 
 .title{
-    background-color:  rgb(8, 8, 88);
-    color: yellow;
+    /* background-color:  rgb(8, 8, 88); */
+    background-color: rgb(6, 67, 87);
+    color: violet;
     text-decoration:underline;
     text-align: center;
     font-family:'Offside';
@@ -19,7 +20,8 @@
     flex-wrap: wrap;
     /* align-items: center; */
     justify-content: center;
-    background-color: rgb(8, 8, 88);
+    /* background-color: rgb(8, 8, 88); */
+        background-color: rgb(6, 67, 87);
     width: 100%;
 height: 100vh;
     
@@ -43,7 +45,7 @@ height: 100vh;
    text-align: center;
    /* font-weight: bolder; */
   color: yellow;
-opacity: 0.8;
+/* opacity: 0.8; */
    margin: 10px 0 0  10px;
    /* background-color: blue; */
 font-family:'Roboto';
@@ -73,7 +75,7 @@ overflow: hidden;
 }
 
 .delete{
-    width: 40px;
+    width: 80px;
     height: 40px;
     cursor: pointer;
     margin-top: 5px;
@@ -81,12 +83,31 @@ overflow: hidden;
     font-weight: bolder;
     font-family:'Roboto', cursive;
     border-radius: 40px;
-    background-color: yellow; 
+    background-color: violet; 
     border: none;
+    margin: 5px;
 } 
 .delete:hover{
     border: solid black 1px;
     background-color: red;
+}
+
+.update{
+    width: 80px;
+    height: 40px;
+    cursor: pointer;
+    margin-top: 5px;
+    font-size: larger;
+    font-weight: bolder;
+    font-family:'Roboto', cursive;
+    border-radius: 40px;
+    background-color: violet; 
+    border: none;
+    margin: 5px;
+} 
+.update:hover{
+    border: solid black 1px;
+    background-color:blue;
 }
 /* .button{
     display: flex;

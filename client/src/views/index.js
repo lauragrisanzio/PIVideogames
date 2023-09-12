@@ -4,5 +4,6 @@ import Detail from "./Detail/detail.component";
 import Form from "./Form/form";
 import GamesDatabase from "./GamesDatabase/gamesDatabase";
 import GamesdbDelete from "./GamesdbDelet/gamesdbDelete";
+import GamesdbUpdate from "./GamesdbUpdate/gamesdbUpdate";
 
-export { Home, Landing, Detail, Form, GamesDatabase, GamesdbDelete };
+export { Home, Landing, Detail, Form, GamesDatabase, GamesdbDelete, GamesdbUpdate };

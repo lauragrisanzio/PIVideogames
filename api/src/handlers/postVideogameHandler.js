@@ -1,4 +1,4 @@
-const postVideogame = require("../controllers/postVideogame")
+const postVideogame = require("../controllers/postVideogame");
 
 const postVideogameHandler = async (req, res) => {
   try {
@@ -10,19 +10,13 @@ const postVideogameHandler = async (req, res) => {
       released,
       rating,
       rating_top,
-      GenreId
+      GenreId,
     } = req.body;
 
-      if (
-        !name ||
-        !description ||
-        !platforms  ||
-        !released ||
-        !rating ||
-        !GenreId
-      )
-        throw Error("Missing data");
-      
+    
+    if (!name || !description || !platforms || !released || !rating || !GenreId)
+      throw Error("Missing data");
+
     const newVideogame = await postVideogame({
       name,
       description,
@@ -31,8 +25,17 @@ const postVideogameHandler = async (req, res) => {
       released,
       rating,
       rating_top,
-       GenreId
+      GenreId
     });
+    
+
+    // let genresdb = await Genres.findAll({
+    //   where: {
+    //     name: genres,
+    //   },
+    // });
+
+    // await newVideogame.addGenres(genresdb);
     return res.status(200).json({ created: "ok", videogame: newVideogame });
   } catch (error) {
     return res.status(400).json({ error: error.message });

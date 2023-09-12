@@ -44,11 +44,11 @@ export const validator = (videogame) => {
 if (!videogame.rating_top || videogame.rating_top < 1 || videogame._top > 5) {
   errors.rating_top1 = "Rating top must be between 1 and 5";
   }
-  if (videogame.GenreId.length < 1) {
-  errors.GenreId1 = "Must select a minimun two genres"
+  if (videogame.Genres.length < 1) {
+  errors.Genres1 = "Must select a minimun two genres"
   }
-  // if (videogame.GenreId.map(v =>v.id === videogame.GenreId)) {
-  //   alert("Genre is alredy select");
+  // if (videogame.GenreId === videogame.GenreId) {
+  //   errors.GenreId2=("Genre is alredy select");
   // }
   return errors;
 };

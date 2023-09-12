@@ -15,10 +15,15 @@ const NavBar = () => {
   return (
     <div>
       <div className={styles.NavBar}>
+        <Link className={styles.link} to="/">EXIT</Link>
         <Link className={styles.link} to="/home">HOME</Link>
         <h1 className={styles.titleHome}>VIDEOGAME´S WORLD</h1>
-        <Link className={styles.linkdatabase} to="/created">VIDEOGAMES CREATED</Link>
-        <Link className={styles.link} to="/form">CREATE</Link>
+        <Link className={styles.linkdatabase} to="/created">
+          VIDEOGAMES CREATED
+        </Link>
+        <Link className={styles.link} to="/form">
+          CREATE
+        </Link>
       </div>
     </div>
   );

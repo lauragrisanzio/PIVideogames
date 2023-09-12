@@ -1,4 +1,4 @@
-const {Videogame, Genres} = require("../db")
+const {Videogame, Genre} = require("../db")
 
 const putVideogame = async (id,{
   name,

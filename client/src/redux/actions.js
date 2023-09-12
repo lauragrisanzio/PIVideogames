@@ -16,6 +16,7 @@ export const FILTER_BY_DB = "FILTER_BY_DB";
 export const ORDER_BY_AZ = "ORDER_BY_AZ";
 export const ORDER_BY_RATING = "ORDER_BY_RATING";
 export const DELETE_VIDEOGAME = "DELETE_VIDEOGAME"
+export const UPDATE_VIDEOGAME = "UPDATE_VIDEOGAME";
 
 export const getVideogames =  () => {
        return async (dispatch) => {
@@ -171,10 +172,23 @@ console.log(order);
 export const deleteVideogame = (id) => {
   console.log(id);
   return async (dispatch) => {
-     const response = await axios.delete(`http://localhost:3001/videogame/created/${id}`);
+     const response = await axios.delete(`http://localhost:3001/videogame/created/delete/${id}`);
     console.log(response);
     return dispatch({
       type: DELETE_VIDEOGAME,
+      payload: response.data,
+    });
+  };
+};
+
+export const updateVideogame = (id, data) => {
+  console.log(id);
+  return async (dispatch) => {
+    const response = await axios.delete(
+      `http://localhost:3001/videogame/created/update/${id}`, data);
+    console.log(response);
+    return dispatch({
+      type: UPDATE_VIDEOGAME,
       payload: response.data,
     });
   };

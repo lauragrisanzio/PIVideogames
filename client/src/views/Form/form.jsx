@@ -52,6 +52,8 @@ const Form = () => {
     const property = event.target.name;
     const value = event.target.value.toUpperCase();
     setErrors(validator({ ...values, [property]: value }));
+  
+    // if (values.GenreId === values.GenreId) alert("no se puede");
     setValues({
       ...values,
       GenreId: [...values.GenreId, event.target.value]
@@ -108,11 +110,7 @@ const Form = () => {
       GenreId: [],
       // genreName:[]
      });
-<<<<<<< HEAD
   alert("Congratulations, Videogame has been created!! 👏🏼👏🏼");
-=======
-   
->>>>>>> fdde433481f8b7c203276abcbfe1b25895145e8f
   history("/created") //nuevo, ver si funciona!!!!! no me convence como queda
   }
   // console.log(values);
@@ -225,6 +223,7 @@ const Form = () => {
                       <span key={i}>
                         {platform}
                         <button
+                          className={styles.close}
                           value={platform}
                           onClick={(e) => handleDeletePlatforms(e)}
                         >
@@ -297,6 +296,7 @@ const Form = () => {
                       <span key={index}>
                         {genre}
                         <button
+                          className={styles.close}
                           value={genre}
                           onClick={(e) => handleDeleteGenre(e)}
                         >

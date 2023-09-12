@@ -1,9 +1,7 @@
-import React from "react";
 import {
   Routes,
   Route,
   useLocation,
-  useNavigate,
 } from "react-router-dom";
 
 import {
@@ -13,12 +11,9 @@ import {
   Form,
   GamesDatabase,
   GamesdbDelete,
+  
 } from "./views";
 import NavBar from "./components/NavBar/navbar";
-
-// import Activities from "./views/activities/activities";
-// import ActivitiesCards from "./components/activitiesCards/activitiesCards";
-// import CreateActivity from "./components/createActivity/createActivity.component";
 
 function App() {
 
@@ -33,7 +28,8 @@ function App() {
         <Route path="/home/:id" element={<Detail />}></Route>
         <Route path="/form" element={<Form />}></Route>
         <Route path="/created" element={<GamesDatabase />}></Route>
-        <Route path="/created/:id" element={<GamesdbDelete />}></Route>
+        <Route path="/created/delete/:id" element={<GamesdbDelete />}></Route>
+        {/* <Route path="/created/update/:id" element={<GamesdbUpdate />}></Route> */}
       </Routes>
     </div>
   );

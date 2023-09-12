@@ -3,6 +3,7 @@ import { useState } from "react";
 import { getByName, getVideogames } from "../../redux/actions"
 
 import styles from "./searchBar.module.css";
+import Loading from "../Loading/loading";
 
 function SearchBar() {
 
@@ -19,14 +20,17 @@ function SearchBar() {
 
      const handleSubmit = (e) => {
        e.preventDefault(); //para que la pagina no se actualice
-         dispatch(getByName(searchString));  
+       dispatch(getByName(searchString)); 
+       setSearchString("")
      };
 
   return (
+    
     <div className={styles.wrap}>
+      
       <div className={styles.searchBox}>
-       
-        <input
+         
+      <input
           className={styles.searchTerm}
           placeholder="Videogame to play..."
           type="search"
@@ -37,9 +41,12 @@ function SearchBar() {
           type="submit"
           onClick={handleSubmit}>
           <i>SEARCH</i>
-        </button>
-       
-      </div>
+        </button> 
+          </div>
+    
+      
+        
+          
     </div>
   );
 }

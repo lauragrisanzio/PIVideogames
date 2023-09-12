@@ -4,7 +4,7 @@
 import {
   GET_VIDEOGAMES, GET_BY_NAME, POST_VIDEOGAME, GET_BY_ID, CLEAR_DETAIL, GET_GENRES,
   ORDER_BY_AZ, ORDER_BY_RATING, FILTER_GENRES, FILTER_BY_DB, GET_PLATFORMS, GET_VIDEOGAMES_DB,
-  DELETE_VIDEOGAME
+  DELETE_VIDEOGAME, UPDATE_VIDEOGAME
 } from "./actions";
 
 
@@ -52,17 +52,15 @@ const rootReducer = (state = initialState, action) => {
         alert("Cannot found videogame. Try again!");
         return {
           ...state,
-          allVideogames: state.videogames
-        }
+          allVideogames: state.videogames,
+        };
+      } else {
+        return {
+          ...state,
+          allVideogames: action.payload, //el action payload va a ser todos los videogames con ese nombre
+          videogames: action.payload,
+        };
       }
-        
-      else { 
-      return {
-        ...state,
-        allVideogames: action.payload, //el action payload va a ser todos los videogames con ese nombre
-        videogames: action.payload,
-      };
-  }
 
     case GET_BY_ID:
       return {
@@ -84,7 +82,7 @@ const rootReducer = (state = initialState, action) => {
       };
 
     case ORDER_BY_AZ:
-      const order = [...state.videogames].sort((a, b) => {
+      const order = [...state.allVideogames].sort((a, b) => {
         if (action.payload === "A-Z") {
           return a.name > b.name ? 1 : -1;
         } else {
@@ -97,7 +95,7 @@ const rootReducer = (state = initialState, action) => {
       };
 
     case ORDER_BY_RATING:
-      const orderRating = [...state.videogames].sort((a, b) => {
+      const orderRating = [...state.allVideogames].sort((a, b) => {
         if (action.payload === "Lower Rating") {
           return a.rating > b.rating ? 1 : -1;
         } else {
@@ -112,9 +110,10 @@ const rootReducer = (state = initialState, action) => {
     case FILTER_GENRES:
       // const filterGenres = state.allVideogames;
       const genresFilter =
-        action.payload === "All"
-          ? state.videogames
-          : state.videogames.filter((v) => v.genres.includes(action.payload));
+        // action.payload === "All"
+        //   ? state.videogames
+        //   :
+          state.videogames.filter((v) => v.genres.includes(action.payload));
       //   console.log(filterGenres);
       //  console.log(genresFilter);
       return {
@@ -127,25 +126,32 @@ const rootReducer = (state = initialState, action) => {
       // const filterV = state.videogames;
       const filterVideogames =
         action.payload === "db"
-          ? state.videogames.filter((g) => g.id.toString().includes("-"))
-          : //     : state.videogames.filter((g) =>  !g.id.toString().includes("-"));
-          action.payload === "api"
-          ? state.videogames.filter((g) => !g.id.toString().includes("-"))
+          ? [...state.videogames].filter((g) => g.id.toString().includes("-"))
+          : action.payload === "api"
+          ?[...state.videogames].filter((g) => !g.id.toString().includes("-"))
           : [...state.videogames];
       // console.log(filterV);
-      console.log(filterVideogames);
+      // console.log(filterVideogames);
+      
       return {
         ...state,
-
         allVideogames: filterVideogames,
       };
 
     case DELETE_VIDEOGAME:
       return {
         ...state,
-        // allVideogames: action.payload, 
+        // allVideogames: action.payload,
         // videogames: action.payload,
-        allVideogames: state.videogames.filter((v) => v.id !== action.payload)
+        allVideogames: state.videogames.filter((v) => v.id !== action.payload),
+      };
+
+    case UPDATE_VIDEOGAME:
+      return {
+        ...state,
+        allVideogames: action.payload,
+        // videogames: action.payload,
+        // allVideogames: state.videogames.filter((v) => v.id === action.payload),
       };
 
     default:
