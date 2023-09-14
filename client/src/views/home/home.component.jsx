@@ -9,11 +9,9 @@ import Cards from "../../components/Cards/cards";
 import Header from "../../components/Headers/header";
 import Paginate from "../../components/Paginate/paginate";
 
-import { getGenres, getVideogames } from "../../redux/actions";
+import { getGenres, getVideogames, clearHome } from "../../redux/actions";
 
-// import NavBar from "../../components/navbar/navbar.component";
-// import Header from "../../components/headers/header.component";
-// import Pagination from "../../components/pagination/pagination.component";
+
 
 import styles from"./home.module.css";
 
@@ -28,8 +26,8 @@ function Home() {
   useEffect(() => {
     dispatch(getVideogames()); //1° parametro lo que queremos ejecutar al momento de hacer el dispatch, cuando se monta
     dispatch(getGenres());
-    // return(()=>{}) //=> en esta callback se ejecuta una fx al momento de desmontar
-  }, [dispatch]); //2° parametro una array de dependecia
+    // return(()=>{}) //=> en esta callback se ejecuta una fx al momento de desmontar}
+   }, [dispatch]); //2° parametro una array de dependecia
 
   const handleAll = () => {
   dispatch(getVideogames())
@@ -42,35 +40,38 @@ function Home() {
   const totalPages = Math.ceil(totalVideogames / perPage);  //cantidad de paginas que va a tener la SPA
   const numberStart = (currentPage - 1) * perPage;
   const numberEnd = (currentPage - 1) * perPage + perPage;
-  const slicePage = allVideogames.slice(numberStart, numberEnd)
+  
 
   return (
     <div className={styles.home}>
       <div>
-      <div className={styles.header}>
-          
-        
-      </div>
+        <div className={styles.header}></div>
         {/* <h1 className={styles.titleHome}>VIDEOGAME´S WORLD</h1> */}
         <SearchBar />
-        <button className={styles.button } onClick={handleAll}>ALL VIDEOGAMES</button>
+        <button className={styles.button} onClick={handleAll}>
+          ALL VIDEOGAMES
+        </button>
         <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
         <Paginate
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
           totalPages={totalPages}
         />
-       
-        {allVideogames.length ?
+
+        {allVideogames.length ? (
           <div className={styles.cardList}>
-            <Cards allVideogames={allVideogames} slicePage={slicePage} />
+            <Cards
+              allVideogames={allVideogames}
+              numberEnd={numberEnd}
+              numberStart={numberStart}
+            />
           </div>
-          : (
-            <div className={styles.load}>
-              {/* <h3 className={styles.loading}>Loading...</h3> */}
-              <Loading />
-            </div>
-          )}
+        ) : (
+          <div className={styles.load}>
+            {/* <h3 className={styles.loading}>Loading...</h3> */}
+            <Loading />
+          </div>
+        )}
       </div>
     </div>
   );

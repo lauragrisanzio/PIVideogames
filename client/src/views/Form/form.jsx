@@ -145,6 +145,7 @@ const Form = () => {
               <div>
                 <label htmlFor="background_image"> Image:</label>
                 <input
+                  placeholder="URL image"
                   type="text"
                   value={values.background_image}
                   name="background_image"
@@ -166,7 +167,7 @@ const Form = () => {
                   rows="3"
                   cols="20"
                   name="description"
-                  placeholder="Describe the videogame"
+                  placeholder="Describe the videogame..."
                   value={values.description}
                   onChange={(e) => handleChange(e)}
                 />

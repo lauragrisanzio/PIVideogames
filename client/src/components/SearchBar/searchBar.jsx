@@ -1,17 +1,17 @@
 import { useDispatch} from "react-redux"
 import { useState } from "react";
-import { getByName, getVideogames } from "../../redux/actions"
+import { getByName} from "../../redux/actions"
 
 import styles from "./searchBar.module.css";
-import Loading from "../Loading/loading";
+
 
 function SearchBar() {
 
-  // const allVideogames = useSelector(state => state.allVideogames)
+
   const dispatch = useDispatch();
 
      const [searchString, setSearchString] = useState("");
-
+// console.log(searchString);
      //funcion que setea el searchstring(value) del input
      const handleChange = (e) => {
     //setSearchString(e.target.value.toLowerCase());
@@ -21,7 +21,7 @@ function SearchBar() {
      const handleSubmit = (e) => {
        e.preventDefault(); //para que la pagina no se actualice
        dispatch(getByName(searchString)); 
-       setSearchString("")
+     
      };
 
   return (
@@ -42,10 +42,7 @@ function SearchBar() {
           onClick={handleSubmit}>
           <i>SEARCH</i>
         </button> 
-          </div>
-    
-      
-        
+          </div>     
           
     </div>
   );

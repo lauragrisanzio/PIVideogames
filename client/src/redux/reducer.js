@@ -4,7 +4,7 @@
 import {
   GET_VIDEOGAMES, GET_BY_NAME, POST_VIDEOGAME, GET_BY_ID, CLEAR_DETAIL, GET_GENRES,
   ORDER_BY_AZ, ORDER_BY_RATING, FILTER_GENRES, FILTER_BY_DB, GET_PLATFORMS, GET_VIDEOGAMES_DB,
-  DELETE_VIDEOGAME, UPDATE_VIDEOGAME
+  DELETE_VIDEOGAME, UPDATE_VIDEOGAME, CLEAR_HOME
 } from "./actions";
 
 
@@ -80,7 +80,13 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         detail: [],
       };
-
+    
+    case CLEAR_HOME:
+      return {
+        ...state,
+        allVideogames: state.allVideogames,
+      };
+    
     case ORDER_BY_AZ:
       const order = [...state.allVideogames].sort((a, b) => {
         if (action.payload === "A-Z") {
@@ -113,7 +119,7 @@ const rootReducer = (state = initialState, action) => {
         // action.payload === "All"
         //   ? state.videogames
         //   :
-          state.videogames.filter((v) => v.genres.includes(action.payload));
+        state.videogames.filter((v) => v.genres.includes(action.payload));
       //   console.log(filterGenres);
       //  console.log(genresFilter);
       return {
@@ -128,22 +134,27 @@ const rootReducer = (state = initialState, action) => {
         action.payload === "db"
           ? [...state.videogames].filter((g) => g.id.toString().includes("-"))
           : action.payload === "api"
-          ?[...state.videogames].filter((g) => !g.id.toString().includes("-"))
+          ? [...state.videogames].filter((g) => !g.id.toString().includes("-"))
           : [...state.videogames];
       // console.log(filterV);
       // console.log(filterVideogames);
-      
+    
+
+
       return {
         ...state,
         allVideogames: filterVideogames,
       };
 
     case DELETE_VIDEOGAME:
+      const deleteVideogame = [...state.allVideogames].filter(
+        (v) => v.id !== action.payload
+      );
       return {
         ...state,
-        // allVideogames: action.payload,
+        allVideogames: deleteVideogame,
         // videogames: action.payload,
-        allVideogames: state.videogames.filter((v) => v.id !== action.payload),
+        // allVideogames: state.videogames.filter((v) => v.id !== action.payload),
       };
 
     case UPDATE_VIDEOGAME:

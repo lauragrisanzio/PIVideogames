@@ -1,11 +1,12 @@
 //componente que engloba a todos los videojuegos
 import Card from "../Card/card"
-import Loading from "../Loading/loading";
+
 
 import styles from "./cards.module.css"
 
-function Cards({slicePage}) {
+function Cards({allVideogames, numberEnd, numberStart}) {
   
+  const slicePage = allVideogames && allVideogames.slice(numberStart, numberEnd);
   return (
     <div className={styles.cardcontainer} >
      

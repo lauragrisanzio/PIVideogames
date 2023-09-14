@@ -3,7 +3,8 @@ const getVideogameByName = require("../controllers/getVideoGByName")
 
 
 const getVideogamesHandler = async (req, res) => {
-    const {name} = req.query
+    const { name } = req.query
+ 
 try {
     const getAll =
         name ?

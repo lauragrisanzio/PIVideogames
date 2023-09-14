@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 
+
 import styles from "./landing.module.css";
 
 
+
 const Landing = () => {
-   
+
   return (
     <div>
       <div className={styles.landing}>

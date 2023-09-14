@@ -9,6 +9,7 @@ export const GET_BY_NAME = "GET_BY_NAME";
 export const POST_VIDEOGAME = "POST_VIDEOGAME"
 export const GET_BY_ID = "GET_BY_ID";
 export const CLEAR_DETAIL = "CLEAR_DETAIL"
+export const CLEAR_HOME = "CLEAR_HOME";
 export const GET_GENRES = "GET_GENRES";
 export const GET_PLATFORMS = "GET_PLATFORMS";
 export const FILTER_GENRES = "FILTER_GENRES";
@@ -67,7 +68,7 @@ export const getByName = (name) => {
     try {
       const response = await axios(`http://localhost:3001/videogame?name=${name}`);
       // console.log(response);
-      // if(!response.data) alert("No hay videojuegos con ese nombre, intente nuevamente");
+      console.log(response);
     return dispatch({
       type: GET_BY_NAME,
       payload: response.data,
@@ -121,8 +122,8 @@ export const postVideogame = (data) => {
            return true;
          })
          .catch((error) => {
-          
-           alert("Cannot creat videogame. Error: " + error.response.data);
+          console.log(error);
+          //  alert("Cannot create videogame. Error: " + error.response.data);
            return false;
          });
      };
@@ -135,6 +136,12 @@ export const clearDetail = () => {
       type: CLEAR_DETAIL,
     }
   );
+};
+
+export const clearHome = () => {
+  return {
+    type: CLEAR_HOME,
+  };
 };
 
 export const filterGenres = (payload) => dispatch =>{

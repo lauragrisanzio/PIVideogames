@@ -1,8 +1,8 @@
 import Loading from "../../components/Loading/loading.jsx";
 
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { useEffect} from "react";
 
 import { getById, clearDetail } from "../../redux/actions.js";
 
@@ -11,7 +11,7 @@ import styles from "./detail.module.css";
 const Detail = () => {
 
   const detail = useSelector((state) => state.detail);
-  // console.log(detail);
+  console.log(detail);
   const dispatch = useDispatch();
 // const history = useNavigate()
 
@@ -28,7 +28,7 @@ const Detail = () => {
     };      
   }, [dispatch,id])
   
-const defaultImage="../../../assets/detail/descarga.jpeg";
+// const defaultImage="../../../assets/detail/descarga.jpeg";
   return (
     <div>
       <div className={styles.h1}>
@@ -112,7 +112,7 @@ const defaultImage="../../../assets/detail/descarga.jpeg";
                 <u>Genres:</u>
               </h3>
 
-              {detail.genres?.map((g) => (g.name ? g.name : g)).join(",  ")}
+              {detail.genres?.map((g) => (g.name ? g.name : g)).join(",  ") || detail.Genres?.map((g) => g.name).join(", ")}
             </p>
           </>
         ) : (
