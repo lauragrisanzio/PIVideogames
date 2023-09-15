@@ -6,14 +6,16 @@ const {Op} = require("sequelize")
 const { API_KEY } = process.env;
 
 const getVideogameByName = async (name) => {
- if(!name) throw new Error ("Please, complete search")
- 
+//  if(!name) throw new Error ("Please, complete search")
+ const nameToFound = name.toLowerCase()
 
   const videogamesList = await getVideogames();
   // console.log(videogamesList);
-  const vgName = await videogamesList.filter(v => v.name.toLowerCase().includes(name.toLowerCase()))
-
-   return vgName.splice(0, 15);
+  const vgName = await videogamesList.filter(v => v.name.toLowerCase().includes(nameToFound))
+// if (!vgName) {
+//    throw Error ("Can't find videogames with that name");
+// }
+  return vgName.splice(0, 15);
    
 };
 module.exports = getVideogameByName;

@@ -2,9 +2,9 @@ import { useState } from "react";
 import styles from "./paginate.module.css"
 
 
-const Paginate = ({ currentPage, setCurrentPage, totalPages }) => {
+const Paginate = ({ currentPage, setCurrentPage, totalPages, input, setInput }) => {
 
-  const [input, setInput] = useState(1);
+  // const [input, setInput] = useState(1);
 
   const nextPage = () => {
     setInput(input + 1);
@@ -31,7 +31,8 @@ const Paginate = ({ currentPage, setCurrentPage, totalPages }) => {
           name="page"
           autoComplete="off"
           value={input}
-          className={styles.input}
+        className={styles.input}
+        
         />
         {/* <input
           name="page"

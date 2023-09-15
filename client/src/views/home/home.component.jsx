@@ -40,14 +40,14 @@ function Home() {
   const totalPages = Math.ceil(totalVideogames / perPage);  //cantidad de paginas que va a tener la SPA
   const numberStart = (currentPage - 1) * perPage;
   const numberEnd = (currentPage - 1) * perPage + perPage;
-  
+  const [input, setInput] = useState(1);
 
   return (
     <div className={styles.home}>
       <div>
         <div className={styles.header}></div>
         {/* <h1 className={styles.titleHome}>VIDEOGAME´S WORLD</h1> */}
-        <SearchBar />
+        <SearchBar setCurrentPage={setCurrentPage} setInput={setInput} />
         <button className={styles.button} onClick={handleAll}>
           ALL VIDEOGAMES
         </button>
@@ -56,6 +56,8 @@ function Home() {
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
           totalPages={totalPages}
+          input={input}
+          setInput={setInput}
         />
 
         {allVideogames.length ? (

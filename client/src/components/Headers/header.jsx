@@ -86,8 +86,8 @@ const Header = ({currentPage, setCurrentPage}) => {
             <option selected htmlFor="filter" value="All">
               Genre:
             </option>
-            {genres.map((g) => (
-              <option value={g.name}>{g.name}</option>
+            {genres.map((g, i) => (
+              <option key={ i} value={g.name}>{g.name}</option>
             ))}
           </select>
 

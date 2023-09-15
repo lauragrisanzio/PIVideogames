@@ -74,3 +74,28 @@ i{
    opacity: 0.7;
 
  }
+
+ .searchButtonC{
+  width: 175px;
+  height: 45px;
+  border: 1px solid;
+  background: rgb(253, 108, 64);
+  text-align: center;
+  color: black;
+  border-radius: 5px 5px 5px 5px;
+  cursor: pointer;
+  font-size: 30px;
+  font-weight: bolder;
+  /* margin: 5px; */
+  /* padding-bottom: 25px; */
+  font-family: "Dongle";
+ }
+
+  .searchButtonC:hover {
+  /* color: rgba(255, 255, 255, 1) !important;
+  box-shadow:  0px 4px 16px 3px lightblue;
+  transition: all 0.3s ease; */
+   transform: scale(.96);
+   opacity: 0.7;
+
+ }

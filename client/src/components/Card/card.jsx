@@ -19,7 +19,7 @@ function Card({ videogame }) {  //viene por props de Cards
           <img src={background_image || defaultImage} alt="Imagen del juego" />
           <h2 className={styles.name}>{name}</h2>
           
-          <h5 className={styles.genres}>{genres.join(" - ")}</h5>
+          <h5 className={styles.genres}>{genres.join("-")}</h5>
         </div>
         {/* <div className={styles.button}> */}
 

@@ -14,7 +14,7 @@ try {
 
 } catch (error) {
     if (!getVideogameByName(name)) {
-        alert("No se encuentran los videjuegos solicitados");
+        throw new Error("Videogame not found");
     } 
     
       return res

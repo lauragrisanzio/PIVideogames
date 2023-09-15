@@ -68,7 +68,7 @@ export const getByName = (name) => {
     try {
       const response = await axios(`http://localhost:3001/videogame?name=${name}`);
       // console.log(response);
-      console.log(response);
+    //  if(!response.data)alert("no")
     return dispatch({
       type: GET_BY_NAME,
       payload: response.data,
@@ -76,7 +76,7 @@ export const getByName = (name) => {
       
     } catch (error) {
       
-      alert("error:" + error.data)
+      alert("error:Can't find videogames with that name"+ error.response)
     }
   };
 };
@@ -122,8 +122,8 @@ export const postVideogame = (data) => {
            return true;
          })
          .catch((error) => {
-          console.log(error);
-          //  alert("Cannot create videogame. Error: " + error.response.data);
+          // console.log(error);
+           console.error(error)
            return false;
          });
      };

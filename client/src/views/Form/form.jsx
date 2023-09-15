@@ -99,7 +99,8 @@ const Form = () => {
       return alert("You must complete all fields");
    
     dispatch(postVideogame(values))
-     setValues({
+    alert("Congratulations, Videogame has been created!! 👏🏼👏🏼");
+    setValues({
       name: "",
       background_image:"",
       description: "",
@@ -110,7 +111,7 @@ const Form = () => {
       GenreId: [],
       // genreName:[]
      });
-  alert("Congratulations, Videogame has been created!! 👏🏼👏🏼");
+ 
   history("/created") //nuevo, ver si funciona!!!!! no me convence como queda
   }
   // console.log(values);
